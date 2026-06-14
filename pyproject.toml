@@ -1,0 +1,28 @@
+[project]
+name = "agent-startup-guru"
+version = "0.1.0"
+description = "Startup Guru — Personal startup mentor blending Vedic astrology, ecosystem intelligence, and persistent memory."
+requires-python = ">=3.11"
+dependencies = [
+    "python-dotenv",
+    "requests",
+    "google-search-results",
+    "pyswisseph",
+    "pytesseract",
+    "Pillow",
+    "easyocr",
+    "pandas",
+    "openai",
+    "anthropic",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.24"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

@@ -1,0 +1,17 @@
+{
+  "name": "agent-startup-guru",
+  "description": "Startup mentor blending Vedic astrology, ecosystem intelligence, and persistent memory for Vijay Raghav Varada, founder of Fracktal Works. Use when the user asks about startup strategy, Vedic astrology, birth charts, muhurta timing, hardware/deep-tech startups, Indian startup ecosystem, 3D printing, additive manufacturing, fundraising timing, or personal mentorship.",
+  "version": "0.1.0",
+  "skill_repos": [],
+  "integrations": ["serpapi"],
+  "optional_integrations": ["google-sheets"],
+  "model_tier": "tier-balanced",
+  "execution_budget": {
+    "max_runtime_seconds": 300,
+    "max_llm_calls": 20,
+    "max_tool_calls": 40
+  },
+  "authority": "suggest",
+  "max_mutation_attempts": 1,
+  "tags": ["startup", "mentorship", "astrology", "hardware", "deep-tech", "india"]
+}

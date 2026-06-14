@@ -1,0 +1,27 @@
+# Startup Guru - Dependencies
+
+# Web search
+google-search-results
+requests
+
+# Environment
+python-dotenv
+
+# Astrology calculations
+pyswisseph
+
+# LLM (optional - for standalone mode only)
+openai
+anthropic
+
+# Google APIs (optional - for Sheet/Doc integration)
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+
+# OCR (for image text/table extraction)
+pytesseract
+Pillow
+easyocr
+pandas
+

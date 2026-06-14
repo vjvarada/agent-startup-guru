@@ -1,0 +1,53 @@
+# Secrets
+.env
+.env.local
+.env.*.local
+credentials.json
+token.json
+*.token_cache.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+.venv/
+
+# .tmp/ — exclude everything except scripts/
+.tmp/*
+!.tmp/scripts/
+!.tmp/scripts/**
+!.tmp/scripts/**
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Keep .vscode/ settings
+!.vscode/
+
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Don't ignore .vscode - we want the settings
+!.vscode/
+
+# Don't ignore memory - it's persistent state
+# (but DO ignore memory/birth_chart.json if it contains sensitive data)

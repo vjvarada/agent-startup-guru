@@ -1,0 +1,445 @@
+{
+  "primary_company": "Fracktal Works",
+  "industry": "3D Printing / Additive Manufacturing",
+  "stage": "established",
+  "current_focus": "STRATEGIC CROSSROADS: Mentor Debesh Sharma advising to wind down/exit Fracktal, start fresh with cloud-based manufacturing service venture with Athirav",
+  "challenges": {
+    "strategic": [
+      "CROSSROADS: Evaluate Fracktal exit (wind-down vs acquisition) vs continuing vs hybrid restructure",
+      "IISc SLS partnership is dysfunctional — professors blocking go-to-market",
+      "Two mentors giving conflicting structural advice: Namala (daughter company) vs Debesh (clean exit + new entity)",
+      "Applied Additive / RapidTool deprioritized during crossroads evaluation — risk of losing momentum"
+    ],
+    "personal": [
+      "Marriage crisis — Dipasha wants to separate due to emotional unavailability",
+      "Fracktal not covering personal finances — month-to-month struggle"
+    ],
+    "operational": [
+      "Team in transition — Rohith left, Krishna backed out, salesperson exiting",
+      "Working capital lumpy and project-based",
+      "Closing CMET tender (Rs 25L) — demo went well, need to finalize"
+    ]
+  },
+  "active_deals": {
+    "army_printer": {
+      "status": "DELIVERED & INSTALLED — Large machine installed at Army workshop in Haryana. Payment of ~₹50L processed, should be credited shortly.",
+      "customer": "Indian Army (via Amace Solutions)",
+      "location": "Haryana",
+      "payment_amount": 5000000,
+      "payment_status": "Processed, pending credit",
+      "note": "Vijay is currently at the Haryana army workshop. Describes it as peaceful and beautiful."
+    },
+    "cmet_tender": {
+      "status": "Demo went well — should be able to close tender for ₹25L",
+      "customer": "C-MET (Centre for Materials for Electronics Technology), Pune",
+      "value": 2500000,
+      "scope": "Control software for custom 3D printer",
+      "next_step": "Finalize tender closure"
+    }
+  },
+  "debtors_receivables": {
+    "total_original": 6187380,
+    "collected_mar_23": 1200000,
+    "remaining": 4987380,
+    "as_of": "2026-03-24",
+    "debtors": [
+      {
+        "name": "Amace Solutions Pvt. Ltd.",
+        "contact": "Dr. Vishwas (Head)",
+        "amount": 3053146,
+        "collected": 600000,
+        "remaining": 2453146,
+        "context": "Palette Extruder 3D printer supplied to 515 Field Base Army Workshop, Bangalore. Army payment to Amace also pending.",
+        "status": "₹6L collected. Balance still remaining."
+      },
+      {
+        "name": "TechnoVentor Innovations Pvt. Ltd.",
+        "amount": 1192276,
+        "collected": 600000,
+        "remaining": 592276,
+        "status": "₹6L collected. Balance still remaining."
+      },
+      {
+        "name": "VSD Enterprises",
+        "amount": 851400,
+        "collected": 851400,
+        "remaining": 0,
+        "status": "FULLY COLLECTED"
+      },
+      {
+        "name": "National Institute of Pharmaceuticals",
+        "amount": 560000,
+        "status": "pending"
+      },
+      {
+        "name": "Irillic Pvt. Ltd.",
+        "amount": 397048,
+        "status": "pending"
+      },
+      {
+        "name": "Manipal Academy of Higher Education",
+        "amount": 88432,
+        "status": "pending"
+      },
+      {
+        "name": "Santhosh Mudalagi",
+        "amount": 32450,
+        "status": "pending"
+      },
+      {
+        "name": "IIT Tirupati",
+        "amount": 8259,
+        "status": "pending"
+      },
+      {
+        "name": "IISc - Dr. Hardik J Pandya",
+        "amount": 4370,
+        "status": "pending"
+      }
+    ]
+  },
+  "cash_inflows": [
+    {
+      "date": "2026-03-23",
+      "source": "Amace Solutions",
+      "amount": 600000,
+      "type": "receivable"
+    },
+    {
+      "date": "2026-03-23",
+      "source": "TechnoVentor Innovations",
+      "amount": 600000,
+      "type": "receivable"
+    },
+    {
+      "date": "2026-03-23",
+      "source": "Nitin Kumar (best friend)",
+      "amount": 1000000,
+      "type": "short_term_loan",
+      "note": "Offered unsolicited when Vijay was venting about work stress"
+    }
+  ],
+  "key_relationships": {
+    "nitin_kumar": {
+      "role": "Best friend",
+      "note": "Offered ₹10L unsolicited short-term loan Mar 23. High-trust relationship."
+    },
+    "debesh_sharma": {
+      "role": "Mentor",
+      "note": "Advising Vijay to wind down Fracktal, start fresh with cloud manufacturing venture. Asked Vijay to define dream investment for cloud-based manufacturing service (rapid tooling + 3D printers + digital mfg + investment casting + instant quoting portal + DFM analysis). Believes current investors (IISc etc.) haven't been supportive. Suggested partnering with Athirav. Debesh is Founder & CEO of Metafora."
+    },
+    "athirav_seth": {
+      "role": "Potential co-founder for new venture",
+      "full_name": "Athirav Seth (also spelled Atirav Seth)",
+      "website": "https://atiravseth.com/",
+      "connection": "Junior from Manipal (Mechatronics). Vijay met his father Ravneesh Seth serendipitously while pitching to the Navy at ENC Vizag.",
+      "education": "Manipal Institute of Technology (Mechatronics) → Carnegie Mellon University (MRSD - Robotics Masters)",
+      "experience": [
+        "Twara Robotics at IISc Bangalore (soft pneumatic grippers, axial flux motors, AMRs)",
+        "Mars Rover Manipal team",
+        "ARTPARK UGV at IISc (40kg payload nursing assistant mobile base)",
+        "Dassault Systèmes (Model Based Systems Design, multiphysics models for automotive & aero)",
+        "Published researcher (6-DOF robotic manipulators)",
+        "Keynote speaker at Universal Robots APAC conference 2024",
+        "Presented to Ministry of Heavy Industries"
+      ],
+      "strengths": [
+        "Robotics & mechatronics deep technical skills",
+        "CMU pedigree (currently studying)",
+        "IISc + ARTPARK network",
+        "Navy connection through father",
+        "Young, ambitious, hardware-hands-on"
+      ],
+      "father": "Rear Admiral Ravnish Seth, VSM — currently Admiral Superintendent, Naval Ship Repair Yard, Karwar. Previously CSO (Tech) at Eastern Naval Command (ENC) Vizag (June 2024-Nov 2025). Awarded VSM 2025. Launched eABER-NG software. Very influential position in Navy tech and ship repair/maintenance."
+    },
+    "ravneesh_seth": {
+      "role": "Athirav's father, Rear Admiral Indian Navy",
+      "full_name": "Rear Admiral Ravnish Seth, VSM",
+      "position": "Admiral Superintendent, Naval Ship Repair Yard, Karwar (current). Previously CSO (Tech) at Eastern Naval Command (ENC) Vizag.",
+      "significance": "Gateway to Indian Navy procurement and reverse engineering contracts. Navy has 1000s of Russian-origin components needing reverse engineering. His position at Naval Ship Repair Yard Karwar is directly relevant to manufacturing/repair/spare parts."
+    },
+    "srinivasan_namala": {
+      "role": "Mentor — the most important mentor conversation of 2026",
+      "profile": "Founder of Porus Labs (exited Rs 2,400 Cr to Bain Capital June 2023). Vice Chairman Hyderabad Angels. Co-founder Avammune Therapeutics ( Series A oncology biotech).",
+      "relationship": "Led early Fracktal angel round via Hyderabad Angels. Took partial exit when Pais invested. Called Vijay proactively after seeing Applied Additive video — said he will start doing well now based on 13 years of building.",
+      "key_frameworks": [
+        "Go after the largest fish (find ONE whale customer)",
+        "Personally handle BD",
+        "Optimize for concentrated high-value customers",
+        "Four quotients: IQ, EQ, Social Quotient, Stress Tolerance",
+        "Operator vs Entrepreneur distinction"
+      ],
+      "obligation": "When Vijay finds the big opportunity, bring it to Namala first.",
+      "advice_on_structure": "Do NOT spin out new company. Build as daughter company of Fracktal Works. Preserve existing investor relationships.",
+      "meeting_notes": "See memory/namala_meeting_notes.md for full 4-hour conversation transcript",
+      "meeting_date": "2026-03-06"
+    },
+    "shailesh_lakhani": {
+      "role": "Potential investor / strategic advisor",
+      "profile": "Ex-Managing Director Peak XV Partners (Sequoia India). Harvard. Left Peak XV Feb 2025 after 17 years. Reportedly raising deep-tech fund with ex-colleague Harshjit Sethi.",
+      "interaction": "Met Vijay, reviewed fixture automation software. Acknowledged technical depth. Recommended pivoting to medical domain (cranioplasty, virtual surgery planning).",
+      "significance": "Top-tier VC who sees Applied Additive medical vertical potential. Could invest via new deep-tech fund.",
+      "ranjan_pai_connection": "Claypond (Ranjan Pai) hired Dr. Shravan Subramanyam (ex Wipro-GE Healthcare MD) Jan 2025 to lead medical technology platform — natural partner for Applied Additive medical."
+    },
+    "punarjay_chakravarty": {
+      "role": "Satellite venture co-founder (deprioritized)",
+      "profile": "PhD Robotics Monash, ex-Planet Labs, ex-Ford, CV/ML expert. CEO/CTO Constellation Aerospace. Now at Rainier Labs (Physical AI + manufacturing).",
+      "status": "Deprioritized — Vijay focused on Fracktal/defense pivot"
+    },
+    "abhishek_pitti": {
+      "role": "Family friend — AVOID",
+      "note": "Opportunist who pushed Vijay into metaverse/NFT in 2021. Approached again about a billion dollar robotics opportunity around March 2026. Vijay rejected. One useful insight absorbed: Am I actually optimizing to maximize my outcome?"
+    },
+    "ishan_pillai": {
+      "role": "Co-founder of Bloc42 (joint entity with Vijay)",
+      "entity": "Bloc42",
+      "context": "Vijay and Ishan are co-founders of Bloc42. Previously running AI/hardware course (Block42 AI Course with ESP32, Meta Ads launch strategy). Ishan handles content/logistics; Vijay mentors + technical.",
+      "elevate_nxt": {
+        "status": "SELECTED — Karnataka Elevate NXT 2026",
+        "product": "Rapid Tools (AI fixture automation software)",
+        "grant_potential": "Up to Rs 1 crore, milestone-based",
+        "strategy": "Develop RapidTool under Bloc42, spin off as independent venture after milestone completion. Vijay's prior experience with Fracktal winning Elevate: government does not scrutinize corporate restructuring post-milestone completion.",
+        "why_bloc42": "Fracktal ineligible this year (won Elevate 2 years ago)",
+        "open_items": ["Vijay ownership % in Bloc42", "Ishan role in RapidTool going forward", "Spin-off structure + timeline", "Elevate grant agreement IP clauses (RoC to KA required within 4 months)"]
+      }
+    }
+  },
+  "personal": {
+    "wife": {
+      "name": "Dipasha Mukherji",
+      "birth_date": "1992-09-15",
+      "birth_time": "20:55",
+      "birth_city": "Delhi, India",
+      "lagna": "Mesha (Aries)",
+      "moon_sign": "Mesha (Aries)",
+      "current_dasha": "Moon-Saturn antardasha (Feb 2025 - Sep 2026)",
+      "current_pratyantardasha": "Moon-Saturn-Rahu (Apr 5 - Jul 1, 2026)",
+      "sade_sati": "RISING PHASE — Saturn in Pisces, 12th from natal Moon",
+      "situation": "Wants divorce after fight Apr 17, 2026. Feels alone due to Vijay's unavailability and stress-induced emotional detachment. Also dealing with childhood/early adulthood trauma affecting coping mechanisms. Moon-Saturn-Rahu pratyantardasha = peak emotional crisis period. Sade Sati beginning adds structural pressure.",
+      "chart_note": "Recalculated 2026-04-18 with Swiss Ephemeris. Lagna is Aries (was incorrectly listed as Aquarius)."
+    },
+    "current_location": "Army workshop, Haryana — peaceful environment",
+    "vijay_state": "{date:2026-04-26,theme:Seeking sustained clarity after temporary psychedelic ego-dissolution state,core_pattern:Since taking full charge of Fracktal after co-founder fallout in 2020, Vijay reports increased work fatigue, emotional reactivity to daily business stress, reduced presence at home with Dipasha, and loss of earlier spiritual steadiness and social vitality.,recent_trigger:Psilocybin trip on 2026-04-25 briefly restored a felt sense of ego death, clarity, and emotional agency, but anxiety and work-related pressure returned after the acute effects wore off.,current_question:How to live with stable clarity rather than temporary chemically-induced insight.}"
+  },
+  "strategic_pivot_discussion": {
+    "trigger": "Mentor Debesh Sharma, prompted by marriage crisis and Vijay's burnout",
+    "proposal": "Wind down or find acquirer for Fracktal Works. Start new venture: cloud-based manufacturing service",
+    "new_venture_concept": {
+      "type": "AI-Powered Reverse Engineering & Cloud Manufacturing Service for Defense + Commercial",
+      "core_thesis": "Use AI to make reverse engineering of legacy (esp. Russian) military components faster and scalable. Build a cloud manufacturing platform combining scanning, AI-driven CAD reconstruction, DFM analysis, and multi-process manufacturing.",
+      "capabilities": [
+        "3D scanning & AI-powered scan-to-CAD reconstruction",
+        "AI-driven DFM analysis",
+        "Rapid tooling",
+        "3D printing (FDM, SLA, SLS, MJF, DMLS)",
+        "CNC machining",
+        "Investment casting",
+        "Digital manufacturing equipment"
+      ],
+      "platform_features": [
+        "Instant quotation portal",
+        "Automated DFM feedback",
+        "AI reverse engineering pipeline (scan → CAD → manufacturing plan)",
+        "Online ordering"
+      ],
+      "defense_angle": "Indian Navy has 1000s of Russian-origin components needing reverse engineering. Currently slow, manual, expensive. AI + additive manufacturing can make this 10x faster and scalable. Massive TAM in Indian defense alone.",
+      "potential_partner": "Athirav Seth (CMU Robotics, Navy connection via father Rear Admiral Ravnish Seth)",
+      "comparable_companies": [
+        "Xometry ($687M rev FY2025, 26% YoY growth)",
+        "Protolabs ($501M rev)",
+        "Fictiv",
+        "DigiFabster",
+        "think3D (Hyderabad — already has Indian Navy contract for spare parts)",
+        "iamrapid.com (India)",
+        "Vexma Technologies (India)",
+        "Leo AI (DFM)",
+        "Backflip AI (CAD AI)",
+        "DashNode AI (DFM analysis)"
+      ],
+      "market_size": "Global MaaS market $58.9B (2024) → $124.6B (2032). Product prototyping $23.1B (2025) → $39.7B (2030). Indian defense maintenance/repair is multi-billion dollar market.",
+      "unique_advantages": [
+        "Vijay: 15 years hardware manufacturing + software capability",
+        "Athirav: CMU robotics AI + Navy connection",
+        "Defense as anchor customer (high-value, sticky, recurring)",
+        "AI moat in reverse engineering pipeline",
+        "India's Make in India / Atmanirbhar Bharat defense policy tailwind"
+      ]
+    },
+    "reasons_for_exit": [
+      "IISc SLS project is an albatross — no resolution, no go-to-market, professors blocking progress",
+      "Chairman Raghupathi prioritizes IISc harmony over execution",
+      "Investors backed SLS vision that is now stalled",
+      "Vijay's burnout and marriage crisis",
+      "Fracktal's working capital struggles",
+      "Fresh start with experience advantage + new venture has much stronger thesis"
+    ],
+    "status": "Under consideration — needs deep analysis"
+  },
+  "goals": {
+    "immediate": "Complete Army training in Haryana. Address relationship with Dipasha. Think deeply about Fracktal vs new venture.",
+    "short_term": "Make strategic decision on Fracktal future. Close CMET tender. Receive Army Rs 50L. Have honest conversation with Mohandas Pai about IISc reality.",
+    "medium_term": "If pivoting: begin transition planning. If staying: force IISc resolution via Raghupathi/Pai. Either way: restart Applied Additive momentum.",
+    "long_term": "Build a high-growth venture at intersection of AI + manufacturing (defense/medical/industrial). Become entrepreneur, not just operator (per Namala framework)."
+  },
+  "products_exploring": [],
+  "sls_project": {
+    "name": "Apollo 350 SLS",
+    "description": "India's first indigenously developed polymer Selective Laser Sintering (SLS) 3D printer",
+    "unveiled": "IMTEX 2025, January 2025",
+    "partners": {
+      "iisc": {
+        "entity": "FSID (Foundation for Science Innovation and Development) / SID (Society for Innovation and Development) at IISc Bangalore",
+        "role": "Research partner. Supposed to provide development support, benchmarking, part production for commercial samples, post-processing ecosystem, cooling, software.",
+        "reality": "USELESS for development support. Professors are archaic and bureaucratic. Refusing to benchmark parts, produce parts for commercial samples, or develop ecosystem needed for machine success (post-processing, cooling, software). Project has gone on much longer than anticipated.",
+        "relationship_status": "DYSFUNCTIONAL. Vijay deployed Fracktal's own resources to develop the first machine prototype to show investors progress. IISc is deadweight but Chairman Raghupathi wants to keep IISc professors happy."
+      },
+      "mhi": {
+        "entity": "Ministry of Heavy Industries (MHI), Government of India",
+        "role": "Grant provider under Scheme for Enhancement of Competitiveness in the Indian Capital Goods Sector Phase II",
+        "grant_amount": 85000000,
+        "note": "₹8.5 Cr grant for SLS development. Industry partner (Fracktal) must contribute 20% towards development."
+      }
+    },
+    "tech_specs": "High-stability CO₂ lasers, precision scanning systems, advanced preheating technology. Can process PEEK, ULTEM, carbon fibre composites.",
+    "target_applications": [
+      "Personalised medical devices (PEEK implants for orthopaedics and dental)",
+      "Defense (drones, military systems using carbon fibre composites)",
+      "Industrial (replace metal parts with high-strength thermoplastics for aerospace, automotive, manufacturing)"
+    ],
+    "status": "Decent prototype built. Still needs industry validation, calibration. No go-to-market plan. No ecosystem (post-processing, cooling, software). IISc refusing to support next steps.",
+    "business_impact": "Project has gone on MUCH longer than anticipated. Business plans built around SLS machines are effectively shelved. This is a major albatross."
+  },
+  "funding_history": [
+    {
+      "round": "Seed (1st)",
+      "date": "2015",
+      "investors": [
+        "1 Neoteric Technology Solutions"
+      ],
+      "valuation": "$3M (USD)",
+      "purpose": "Team expansion, R&D, niche verticals (jewellery, dental, biomedical)",
+      "intermediaries": [
+        "Aarin Capital (mentors since college, mediated negotiation)"
+      ],
+      "note": "Mohandas Pai and Ranjan Pai of Manipal Group were already involved as mentors/guides at this stage"
+    },
+    {
+      "round": "Seed (2nd) — SLS fundraise",
+      "date": "November 2024",
+      "investors": [
+        {
+          "name": "Mohandas Pai / Aarin Capital",
+          "profile": "Former Infosys CFO/Director. Prolific angel investor (54+ companies). Has $100M PE fund with Ranjan Pai. Connected to Fracktal since college days via Aarin Capital."
+        },
+        {
+          "name": "Dr. Ranjan Pai / MEMG Family Office LLP",
+          "profile": "Chairman, Manipal Education and Medical Group. Angel investor. Manipal connection to Vijay. Passionate about indigenous innovation."
+        },
+        {
+          "name": "C.N. Raghupathi",
+          "role": "Came onboard as CHAIRMAN of Fracktal Works",
+          "profile": "Director, MILES (Manipal Centre for Innovation Leadership and Entrepreneurship). Decades of sales experience. Vijay calls him 'Raghu'. He likes to keep IISc professors happy.",
+          "note": "Wants to maintain IISc relationship despite dysfunction"
+        }
+      ],
+      "purpose": "Fund Fracktal's 20% industry contribution to MHI SLS development grant (₹8.5Cr total). Develop Apollo 350 SLS.",
+      "note": "Investment tied specifically to SLS project delivery. Project now over-timeline with no resolution."
+    }
+  ],
+  "_last_updated": "2026-04-26T16:10:37.233441",
+  "team": {
+    "size": 20,
+    "key_changes_mar_2026": {
+      "rohith_kumar": {
+        "role": "COO/Technical Lead, 11 years with Vijay",
+        "status": "LEFT March 18, 2026. Available as remote consultant.",
+        "significance": "Handled R&D and manufacturing. Biggest operational loss."
+      },
+      "krishna": {
+        "status": "Did NOT join. Got scared by operations scope — wanted pure R&D only.",
+        "date": "March 17, 2026"
+      },
+      "suryansh": {
+        "role": "Design engineer promoted to oversee R&D applications and processes",
+        "status": "Active"
+      },
+      "hrithik_rithik": {
+        "role": "Manages all inventory operations, well-versed with Odoo ERP",
+        "status": "Active"
+      },
+      "kiran": {
+        "role": "After-sales head + founders office. Hiring junior after-sales engineer.",
+        "status": "Active"
+      },
+      "geo_salesperson": {
+        "status": "Exiting. Unwilling to learn AI. Asked to stay through end of April for transition."
+      }
+    },
+    "stable_functions": "Accounts, HR, Operations — leads in transition but teams intact",
+    "erp": "Odoo (MRP/ERP) — BOMs, purchase orders, sales orders, MOQs, lead times, inventory"
+  },
+  "applied_additive": {
+    "company_name": "Applied Additive (formerly RapidTool / Rapid Tools)",
+    "core_tech": "Intent-to-geometry AI generative design engine",
+    "thesis": "Same core AI engine, two verticals: Manufacturing (near-term revenue) + Medical (high-value moat)",
+    "manufacturing_vertical": {
+      "product": "RapidTool — AI fixture automation software (jigs, fixtures, molds)",
+      "stage": "Pre-revenue, 25+ beta orgs, applied to YC",
+      "pricing": ",500/seat/year SaaS",
+      "enterprise_interest": [
+        "Honda",
+        "Toyoda Gosei",
+        "TVS",
+        "Toyota"
+      ],
+      "moat": "Intent-to-geometry — no direct competitor",
+      "future_domains": [
+        "medical implants",
+        "dental prosthetics",
+        "jewelry",
+        "architectural models"
+      ],
+      "status_note": "Namala advised against ,500/seat spray approach — find ONE whale customer instead"
+    },
+    "medical_vertical": {
+      "product": "Virtual surgery planning + generative AI implant design",
+      "origin": "Shailesh Lakhani (ex-Peak XV) validated and encouraged pursuit after seeing RapidTool",
+      "stage": "EXPERIENCED — 100+ surgeries assisted with traditional workflow. Now building AI-automated version.",
+      "target_market": "Cranioplasty, maxillofacial surgery",
+      "existing_clinical_work": {
+        "hospitals": "Command hospitals in Bangalore (Indian Army/military)",
+        "surgeries_assisted": "100+",
+        "workflow_replaced": "Materialise + InVesalius + 3D Slicer (manual, expensive)"
+      },
+      "competitive_advantages": [
+        "100+ real surgeries — clinical credibility proven",
+        "AI generative design engine — no existing player has this",
+        "Deep understanding of current manual workflow = knows exactly what to automate",
+        "Existing surgeon relationships at command hospitals"
+      ],
+      "competitors_india": [
+        "Osteo3D (surgical guides, cranial helmets, ISO 13485)",
+        "Anatomiz3D (cranioplasty molds, implants, Mumbai)"
+      ],
+      "regulatory": "CDSCO Class C/D for implants — significant moat once approved",
+      "product_roadmap": [
+        "DICOM to 3D model viewer (BUILT)",
+        "AI-automated virtual surgery planning (IN PROGRESS)",
+        "3D printable models for cranioplasty/maxillofacial",
+        "Generative 3D printable implants",
+        "Expand to other surgical domains"
+      ]
+    },
+    "status_apr_2026": "On hold during Fracktal strategic crossroads evaluation. Debesh proposing pivot to defense AI manufacturing instead."
+  },
+  "satellite_opportunity": {
+    "company": "Constellation Aerospace",
+    "co_founder": "Punarjay (Jay) Chakravarty — PhD Robotics Monash, ex-Planet Labs satellite payloads, ex-Ford AVs, CV/ML expert. Now at Rainier Labs (Physical AI + manufacturing).",
+    "mission": "Build Planet Labs-class satellites indigenously in India at lower cost",
+    "funding": ".5M USD raised from BlueHill.vc (Chennai deep-tech VC, Rs 350cr fund)",
+    "vijay_role": "Near-equal co-founder, offered substantial equity",
+    "status_apr_2026": "Deprioritized. Vijay focused on Fracktal/defense pivot evaluation.",
+    "original_connection": "Vijay approached as potential 3D printing vendor for aerospace"
+  },
+  "_reorganized": "2026-04-01 — Merged JSON + SQLite memory systems. Added Applied Additive, team context, satellite opportunity, Namala/Shailesh/Punarjay relationships."
+}

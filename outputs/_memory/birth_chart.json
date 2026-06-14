@@ -1,0 +1,314 @@
+{
+  "meta": {
+    "name": "Secunderabad",
+    "date": "1992-06-18",
+    "time": "03:30",
+    "latitude": 17.4399,
+    "longitude": 78.4983,
+    "city": "Secunderabad",
+    "ayanamsa": 23.7518,
+    "ayanamsa_type": "Lahiri",
+    "calculation_note": "Calculated using Swiss Ephemeris (pyswisseph) with Lahiri ayanamsa.",
+    "calculated_at": "2026-04-18T14:44:43.676568"
+  },
+  "lagna": {
+    "sidereal_longitude": 29.61,
+    "rashi": "Mesha (Aries)",
+    "rashi_index": 0,
+    "degree_in_sign": 29.61,
+    "rashi_lord": "Mars",
+    "nakshatra": "Krittika",
+    "nakshatra_pada": 1,
+    "navamsha_sign": "Dhanu (Sagittarius)"
+  },
+  "planets": {
+    "Sun": {
+      "sidereal_longitude": 63.18,
+      "rashi": "Mithuna (Gemini)",
+      "rashi_index": 2,
+      "degree_in_sign": 3.18,
+      "rashi_lord": "Mercury",
+      "nakshatra": "Mrigashira",
+      "nakshatra_pada": 3,
+      "nakshatra_lord": "Mars",
+      "navamsha_sign": "Tula (Libra)",
+      "navamsha_index": 6
+    },
+    "Moon": {
+      "sidereal_longitude": 273.6,
+      "rashi": "Makara (Capricorn)",
+      "rashi_index": 9,
+      "degree_in_sign": 3.6,
+      "rashi_lord": "Saturn",
+      "nakshatra": "Uttara Ashadha",
+      "nakshatra_pada": 3,
+      "nakshatra_lord": "Sun",
+      "navamsha_sign": "Simha (Leo)",
+      "navamsha_index": 4
+    },
+    "Mars": {
+      "sidereal_longitude": 8.64,
+      "rashi": "Mesha (Aries)",
+      "rashi_index": 0,
+      "degree_in_sign": 8.64,
+      "rashi_lord": "Mars",
+      "nakshatra": "Ashwini",
+      "nakshatra_pada": 3,
+      "nakshatra_lord": "Ketu",
+      "navamsha_sign": "Mithuna (Gemini)",
+      "navamsha_index": 2
+    },
+    "Mercury": {
+      "sidereal_longitude": 81.75,
+      "rashi": "Mithuna (Gemini)",
+      "rashi_index": 2,
+      "degree_in_sign": 21.75,
+      "rashi_lord": "Mercury",
+      "nakshatra": "Punarvasu",
+      "nakshatra_pada": 1,
+      "nakshatra_lord": "Jupiter",
+      "navamsha_sign": "Mesha (Aries)",
+      "navamsha_index": 0
+    },
+    "Jupiter": {
+      "sidereal_longitude": 134.15,
+      "rashi": "Simha (Leo)",
+      "rashi_index": 4,
+      "degree_in_sign": 14.15,
+      "rashi_lord": "Sun",
+      "nakshatra": "Purva Phalguni",
+      "nakshatra_pada": 1,
+      "nakshatra_lord": "Venus",
+      "navamsha_sign": "Simha (Leo)",
+      "navamsha_index": 4
+    },
+    "Venus": {
+      "sidereal_longitude": 64.34,
+      "rashi": "Mithuna (Gemini)",
+      "rashi_index": 2,
+      "degree_in_sign": 4.34,
+      "rashi_lord": "Mercury",
+      "nakshatra": "Mrigashira",
+      "nakshatra_pada": 4,
+      "nakshatra_lord": "Mars",
+      "navamsha_sign": "Vrishchika (Scorpio)",
+      "navamsha_index": 7
+    },
+    "Saturn": {
+      "sidereal_longitude": 294.4,
+      "rashi": "Makara (Capricorn)",
+      "rashi_index": 9,
+      "degree_in_sign": 24.4,
+      "rashi_lord": "Saturn",
+      "nakshatra": "Dhanishta",
+      "nakshatra_pada": 1,
+      "nakshatra_lord": "Mars",
+      "navamsha_sign": "Kumbha (Aquarius)",
+      "navamsha_index": 10
+    },
+    "Rahu": {
+      "sidereal_longitude": 247.11,
+      "rashi": "Dhanu (Sagittarius)",
+      "rashi_index": 8,
+      "degree_in_sign": 7.11,
+      "rashi_lord": "Jupiter",
+      "nakshatra": "Mula",
+      "nakshatra_pada": 3,
+      "nakshatra_lord": "Ketu",
+      "navamsha_sign": "Mithuna (Gemini)",
+      "navamsha_index": 2
+    },
+    "Ketu": {
+      "sidereal_longitude": 67.11,
+      "rashi": "Mithuna (Gemini)",
+      "rashi_index": 2,
+      "degree_in_sign": 7.11,
+      "rashi_lord": "Mercury",
+      "nakshatra": "Ardra",
+      "nakshatra_pada": 1,
+      "nakshatra_lord": "Rahu",
+      "navamsha_sign": "Dhanu (Sagittarius)",
+      "navamsha_index": 8
+    }
+  },
+  "houses": {
+    "1": {
+      "rashi": "Mesha (Aries)",
+      "rashi_lord": "Mars",
+      "planets": [
+        "Mars"
+      ]
+    },
+    "2": {
+      "rashi": "Vrishabha (Taurus)",
+      "rashi_lord": "Venus",
+      "planets": []
+    },
+    "3": {
+      "rashi": "Mithuna (Gemini)",
+      "rashi_lord": "Mercury",
+      "planets": [
+        "Sun",
+        "Mercury",
+        "Venus",
+        "Ketu"
+      ]
+    },
+    "4": {
+      "rashi": "Karka (Cancer)",
+      "rashi_lord": "Moon",
+      "planets": []
+    },
+    "5": {
+      "rashi": "Simha (Leo)",
+      "rashi_lord": "Sun",
+      "planets": [
+        "Jupiter"
+      ]
+    },
+    "6": {
+      "rashi": "Kanya (Virgo)",
+      "rashi_lord": "Mercury",
+      "planets": []
+    },
+    "7": {
+      "rashi": "Tula (Libra)",
+      "rashi_lord": "Venus",
+      "planets": []
+    },
+    "8": {
+      "rashi": "Vrishchika (Scorpio)",
+      "rashi_lord": "Mars",
+      "planets": []
+    },
+    "9": {
+      "rashi": "Dhanu (Sagittarius)",
+      "rashi_lord": "Jupiter",
+      "planets": [
+        "Rahu"
+      ]
+    },
+    "10": {
+      "rashi": "Makara (Capricorn)",
+      "rashi_lord": "Saturn",
+      "planets": [
+        "Moon",
+        "Saturn"
+      ]
+    },
+    "11": {
+      "rashi": "Kumbha (Aquarius)",
+      "rashi_lord": "Saturn",
+      "planets": []
+    },
+    "12": {
+      "rashi": "Meena (Pisces)",
+      "rashi_lord": "Jupiter",
+      "planets": []
+    }
+  },
+  "nakshatras": {},
+  "navamsha": {
+    "Lagna": "Dhanu (Sagittarius)",
+    "Sun": "Tula (Libra)",
+    "Moon": "Simha (Leo)",
+    "Mars": "Mithuna (Gemini)",
+    "Mercury": "Mesha (Aries)",
+    "Jupiter": "Simha (Leo)",
+    "Venus": "Vrishchika (Scorpio)",
+    "Saturn": "Kumbha (Aquarius)",
+    "Rahu": "Mithuna (Gemini)",
+    "Ketu": "Dhanu (Sagittarius)"
+  },
+  "dashas": [
+    {
+      "planet": "Sun",
+      "start": "1992-06-18",
+      "end": "1995-05-05",
+      "years": 2.88,
+      "is_partial": true
+    },
+    {
+      "planet": "Moon",
+      "start": "1995-05-05",
+      "end": "2005-05-05",
+      "years": 10,
+      "is_partial": false
+    },
+    {
+      "planet": "Mars",
+      "start": "2005-05-05",
+      "end": "2012-05-04",
+      "years": 7,
+      "is_partial": false
+    },
+    {
+      "planet": "Rahu",
+      "start": "2012-05-04",
+      "end": "2030-05-05",
+      "years": 18,
+      "is_partial": false
+    },
+    {
+      "planet": "Jupiter",
+      "start": "2030-05-05",
+      "end": "2046-05-05",
+      "years": 16,
+      "is_partial": false
+    },
+    {
+      "planet": "Saturn",
+      "start": "2046-05-05",
+      "end": "2065-05-05",
+      "years": 19,
+      "is_partial": false
+    },
+    {
+      "planet": "Mercury",
+      "start": "2065-05-05",
+      "end": "2082-05-05",
+      "years": 17,
+      "is_partial": false
+    },
+    {
+      "planet": "Ketu",
+      "start": "2082-05-05",
+      "end": "2089-05-05",
+      "years": 7,
+      "is_partial": false
+    },
+    {
+      "planet": "Venus",
+      "start": "2089-05-05",
+      "end": "2109-05-06",
+      "years": 20,
+      "is_partial": false
+    }
+  ],
+  "yogas": [
+    {
+      "name": "Budhaditya Yoga",
+      "planets": [
+        "Sun",
+        "Mercury"
+      ],
+      "description": "Sun-Mercury conjunction. Grants intelligence, communication skills, analytical mind, and success in intellectual pursuits. Excellent for entrepreneurship and tech.",
+      "strength": "Strong"
+    },
+    {
+      "name": "Raja Yoga Potential",
+      "planets": [
+        "Mars"
+      ],
+      "description": "Planet(s) Mars placed in both kendra and trikona influence. Indicates leadership ability and rise to prominence.",
+      "strength": "Strong"
+    }
+  ],
+  "current_dasha": {
+    "planet": "Rahu",
+    "start": "2012-05-04",
+    "end": "2030-05-05",
+    "years": 18,
+    "is_partial": false
+  }
+}

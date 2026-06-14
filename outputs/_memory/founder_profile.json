@@ -1,0 +1,112 @@
+{
+  "name": "Vijay Raghav Varada",
+  "birth": {
+    "date": "1992-06-18",
+    "time": "03:30",
+    "city": "Secunderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": 17.4399,
+    "longitude": 78.4983
+  },
+  "astrology_preference": "vedic",
+  "sun_sign_western": "Gemini",
+  "age_at_founding": 19,
+  "education": "Mechatronics Engineering",
+  "skills": [
+    "hardware design",
+    "3D printing / additive manufacturing",
+    "product development",
+    "entrepreneurship",
+    "public speaking",
+    "writing / authorship",
+    "open-source hardware",
+    "mechatronics",
+    "creative problem-solving",
+    "sustainability engineering",
+    "renewable energy",
+    "assistive technology"
+  ],
+  "company": {
+    "name": "Fracktal Works",
+    "founded_year": 2011,
+    "founder_age_at_founding": 19,
+    "industry": "3D Printing / Additive Manufacturing",
+    "sectors_served": [
+      "Medicine",
+      "Automotive",
+      "Aerospace",
+      "Architecture",
+      "Education"
+    ],
+    "products": "Array of 3D printers catering to personal and industrial needs",
+    "stage": "established"
+  },
+  "achievements": [
+    "Founded Fracktal Works at age 19",
+    "Hackaday Prize Winner 2017",
+    "Hackaday Prize Winner 2018",
+    "Antarctica expedition with polar explorer Robert Swan",
+    "Built 3D Printable Wind Turbine (open-source, showcased in Antarctica)",
+    "Assistive technologies for visually impaired (open-source)",
+    "Renewable energy solutions (open-source)",
+    "TEDx speaker",
+    "Published author (books in multiple languages)",
+    "Recognized in global maker/hardware community"
+  ],
+  "personality_traits": [
+    "visionary",
+    "inventor",
+    "storyteller",
+    "adventurous",
+    "sustainability-minded",
+    "creative problem-solver",
+    "blends art, design, and technology"
+  ],
+  "linkedin_bio": "Meet Vijay Varada, the visionary inventor, storyteller, and entrepreneur at the intersection of art, design, and technology. A mechatronics engineer by choice and an entrepreneur by chance, he founded Fracktal Works at just 19 years old. With an impressive array of 3D printers catering to personal and industrial needs, Fracktal empowers customers in Medicine, Automotive, Aerospace, Architecture, Education, and more. Blending creative problem-solving, technology, and innovation, Vijay seamlessly brings together science, design, and engineering, delivering unique products and solutions. Beyond the corporate world, he actively contributes to open-source hardware projects, particularly assistive technologies for the visually impaired and renewable energy solutions, garnering acclaim and accolades, including Hackaday Prize wins in 2017 and 2018. Fueling his adventurous spirit, Vijay embarked on an expedition to Antarctica alongside the renowned polar explorer, Robert Swan. Together, they showcased the might of open-source hardware through a groundbreaking 3D Printable Wind Turbine. Not content with revolutionizing industries, Vijay is also an accomplished author and TEDx speaker. His books, published in multiple languages, aim to further the cause of innovative engineering.",
+  "current_focus": "STRATEGIC CROSSROADS: Evaluating Fracktal exit vs restructure, defense AI manufacturing venture with Athirav, Applied Additive medical pivot, personal relationship repair",
+  "spouse": {
+    "name": "Dipasha Mukherji",
+    "birth_date": "1992-09-15",
+    "birth_time": "20:55",
+    "birth_city": "Delhi, India",
+    "lagna": "Mesha (Aries)",
+    "lagna_nakshatra": "Bharani Pada 3",
+    "moon_sign": "Mesha (Aries)",
+    "moon_nakshatra": "Ashwini Pada 3",
+    "current_dasha": "Moon-Saturn antardasha (Feb 2025 - Sep 2026)",
+    "current_pratyantardasha": "Moon-Saturn-Rahu (Apr 5 - Jul 1, 2026)",
+    "sade_sati": "RISING PHASE (Saturn in Pisces, 12th from natal Moon in Aries)",
+    "situation_apr_2026": "Wants divorce. Bad fight Apr 17. Feels alone due to emotional unavailability. Childhood/early adulthood trauma contributing to coping patterns. Saturn antardasha + Sade Sati rising phase = extreme emotional pressure.",
+    "chart_note": "Recalculated 2026-04-18 with Swiss Ephemeris. Previous lagna was listed as Aquarius — actually Aries. Mars+Ketu in 3rd, Sun+Mercury in 5th, Jupiter+Venus in 6th, Saturn in 10th, Rahu in 9th."
+  },
+  "notable_connections": [
+    "Robert Swan (polar explorer, Antarctica expedition)",
+    "Mohandas Pai (Aarin Capital, ex-Infosys CFO — Fracktal investor)",
+    "Ranjan Pai (MEMG/Claypond Capital, Manipal Group Chairman — Fracktal investor)",
+    "C.N. Raghupathi (Fracktal Chairman, ex-Infosys India head)",
+    "Srinivasan Namala (Porus Labs founder, Rs 2400Cr exit, Hyderabad Angels VC — mentor)",
+    "Shailesh Lakhani (ex-Peak XV Partners MD — potential investor)",
+    "Debesh Sharma (Metafora founder — mentor)",
+    "Punarjay Chakravarty (ex-Planet Labs, Constellation Aerospace)",
+    "Athirav Seth (CMU Robotics, potential co-founder)",
+    "Rear Admiral Ravnish Seth (Naval Ship Repair Yard Karwar)"
+  ],
+  "_last_updated": "2026-04-18T00:00:00",
+  "_chart_correction_note": "2026-04-18: Birth chart recalculated using Swiss Ephemeris. Lagna corrected from Scorpio to Aries. All memory files updated.",
+  "fracktal_title": "CEO and Managing Director of Fracktal Works. Previously ran R&D and technical operations directly until handing to Rohith Kumar ~2025.",
+  "clinical_experience": {
+    "surgeries_assisted": "100+",
+    "hospitals": "Command hospitals in Bangalore (Indian Army/military)",
+    "domains": "Cranioplasty, maxillofacial surgery",
+    "tools_used": "Materialise, InVesalius, 3D Slicer",
+    "significance": "Not a manufacturing guy exploring medical — a medical-experienced founder who went to manufacturing first because it was faster to market."
+  },
+  "mentors": [
+    "Srinivasan Namala (Porus Labs)",
+    "Debesh Sharma (Metafora)",
+    "Mohandas Pai/Ranjan Pai (investors but also decade-long mentors)"
+  ],
+  "operator_vs_entrepreneur_note": "Per Namala framework (March 2026): Vijay has been an exceptional operator for 13 years. The entrepreneurship journey — problem identification, market framing, sales instinct, people orchestration — is just beginning.",
+  "co_founder_history": "Rohit Asil co-founded Fracktal (2013, from Manipal IT). During pandemic, Vijay broke ties with co-founders. Very tough period — took on all roles: CEO, CTO, finance, sales, marketing."
+}

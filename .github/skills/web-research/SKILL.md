@@ -13,36 +13,43 @@ version: 0.1.0
 # Web Research Directive
 
 ## Purpose
+
 Search the web for current affairs, startup news, personality/company research, and market intelligence to inform mentoring advice.
 
 ## Tools
 
 ### General Search
+
 ```bash
 python .tmp/scripts/web_search.py --mode search --query "3D printing India market 2026"
 ```
 
 ### News
+
 ```bash
 python .tmp/scripts/web_search.py --mode news --query "Indian startup funding"
 ```
 
 ### Person Research
+
 ```bash
 python .tmp/scripts/web_search.py --mode person --query "Kunal Shah CRED"
 ```
 
 ### Startup Ecosystem
+
 ```bash
 python .tmp/scripts/web_search.py --mode startup --query "hardware startups India"
 ```
 
 ### Google Trends
+
 ```bash
 python .tmp/scripts/web_search.py --mode trends --query "3D printing,additive manufacturing"
 ```
 
 ### Deep Person/Company Research
+
 ```bash
 python .github/skills/web-research/scripts/personality_research.py --name "Name" --company "Company" --save
 python .github/skills/web-research/scripts/personality_research.py --company "Company" --research-type company --save
@@ -52,6 +59,7 @@ python .github/skills/web-research/scripts/personality_research.py --industry "3
 ## When to Search
 
 ### Always search in these situations:
+
 1. **Person mentioned**: Any founder, investor, or personality Vijay mentions — research them
 2. **Industry question**: Market size, trends, competitors
 3. **Current events**: If timestamp matters (funding rounds, policy changes, etc.)
@@ -59,12 +67,14 @@ python .github/skills/web-research/scripts/personality_research.py --industry "3
 5. **Decision support**: When Vijay is deciding, get fresh market context
 
 ### Don't search for:
+
 1. Astrological calculations (use local tools)
 2. Vijay's own profile (use memory bank)
 3. General business frameworks (use your training)
 4. Previous conversation context (use memory bank)
 
 ## API Budget
+
 - SerpAPI has rate limits. Use efficiently:
   - Combine related queries where possible
   - Use --save to cache results in .tmp/
@@ -72,6 +82,7 @@ python .github/skills/web-research/scripts/personality_research.py --industry "3
   - `personality_research.py` uses 4-5 API calls per person — use sparingly
 
 ## Post-Search Workflow
+
 1. Run search tool
 2. Read raw results (JSON output)
 3. Synthesize into actionable insight (you do this, not a script)

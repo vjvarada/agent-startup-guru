@@ -25,7 +25,8 @@ if (-not (Test-Path ".venv")) {
         exit 1
     }
     Write-Host "✓ Virtual environment created" -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "✓ Virtual environment already exists" -ForegroundColor Green
 }
 
@@ -46,7 +47,8 @@ if (Test-Path "requirements.txt") {
         exit 1
     }
     Write-Host "✓ Dependencies installed" -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "WARNING: requirements.txt not found" -ForegroundColor Yellow
 }
 
@@ -57,7 +59,8 @@ if (-not (Test-Path ".env")) {
         Write-Host "✓ Created .env from .env.example" -ForegroundColor Green
         Write-Host "  IMPORTANT: Edit .env with your API keys!" -ForegroundColor Yellow
     }
-} else {
+}
+else {
     Write-Host "✓ .env file already exists" -ForegroundColor Green
 }
 

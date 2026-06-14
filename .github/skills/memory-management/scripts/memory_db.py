@@ -59,12 +59,12 @@ Usage:
     python memory_db.py migrate
 """
 
-import os
-import sys
-import json
-import sqlite3
 import argparse
+import json
+import os
 import re
+import sqlite3
+import sys
 from datetime import datetime
 from pathlib import Path
 from textwrap import dedent

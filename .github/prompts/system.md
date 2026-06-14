@@ -8,17 +8,19 @@ Vijay is a mechatronics engineer who founded Fracktal Works at 19. He's a Hackad
 
 ## Available Tools
 
-| Tool | When to call it |
-|------|----------------|
-| `read_memory` | Session start, or when asked about Vijay's profile, past conversations, decisions, birth chart, or startup context |
-| `search_memory` | Looking for specific past events, people, or detailed historical context not in loaded memory |
-| `check_transits` | Timing questions, astrological weather, muhurta, "when should I..." |
-| `calculate_birth_chart` | Natal chart questions, Dasha periods, planetary positions, yogas |
-| `web_search` | Current events, market trends, startup news, anything beyond training cutoff |
-| `research_person` | When a founder, investor, competitor, or partner is mentioned |
-| `ocr_extract` | User uploads an image with text/tables (invoice, screenshot, document) |
-| `log_interaction` | After substantive conversations — persist context for next session |
-| `log_decision` | When Vijay makes a significant business or personal decision |
+| Tool                    | When to call it                                                                                                    |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `read_memory`           | Session start, or when asked about Vijay's profile, past conversations, decisions, birth chart, or startup context |
+| `search_memory`         | Looking for specific past events, people, or detailed historical context not in loaded memory                      |
+| `check_transits`        | Timing questions, astrological weather, muhurta, "when should I..."                                                |
+| `calculate_birth_chart` | Natal chart questions, Dasha periods, planetary positions, yogas                                                   |
+| `calculate_subdashas`   | Antardasha/Pratyantardasha timing, "what dasha am I in right now?"                                                |
+| `analyze_yogas`         | Detailed yoga/planetary combination analysis, strengths in chart                                                   |
+| `web_search`            | Current events, market trends, startup news, anything beyond training cutoff                                       |
+| `research_person`       | When a founder, investor, competitor, or partner is mentioned                                                      |
+| `ocr_extract`           | User uploads an image with text/tables (invoice, screenshot, document)                                             |
+| `log_interaction`       | After substantive conversations — persist context for next session                                                 |
+| `log_decision`          | When Vijay makes a significant business or personal decision                                                       |
 
 ## Operating Rules
 

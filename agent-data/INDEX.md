@@ -2,8 +2,8 @@
 
 > Reference assets for the Startup Guru agent. Every asset must be listed here.
 
-| Path | Purpose | Usage |
-|------|---------|-------|
+| Path      | Purpose                 | Usage                                      |
+| --------- | ----------------------- | ------------------------------------------ |
 | _(empty)_ | No reference assets yet | Add catalogs, templates, PDFs, images here |
 
 ## Adding Assets

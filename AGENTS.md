@@ -10,12 +10,12 @@
 
 ## Available Skills
 
-| Skill | SKILL.md | What it does |
-|-------|----------|-------------|
-| startup-mentor | `.github/skills/startup-mentor/SKILL.md` | Main operating directive — mentoring protocol, thinking toolkit, radical honesty framework |
-| vedic-astrology | `.github/skills/vedic-astrology/SKILL.md` | Vedic astrology interpretation framework for startup decisions |
-| memory-management | `.github/skills/memory-management/SKILL.md` | Dual-tier memory system (JSON + SQLite FTS) operations |
-| web-research | `.github/skills/web-research/SKILL.md` | Web search, news, personality/company/market research via SerpAPI |
+| Skill             | SKILL.md                                    | What it does                                                                               |
+| ----------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| startup-mentor    | `.github/skills/startup-mentor/SKILL.md`    | Main operating directive — mentoring protocol, thinking toolkit, radical honesty framework |
+| vedic-astrology   | `.github/skills/vedic-astrology/SKILL.md`   | Vedic astrology interpretation framework for startup decisions                             |
+| memory-management | `.github/skills/memory-management/SKILL.md` | Dual-tier memory system (JSON + SQLite FTS) operations                                     |
+| web-research      | `.github/skills/web-research/SKILL.md`      | Web search, news, personality/company/market research via SerpAPI                          |
 
 ## File Organization
 
@@ -35,9 +35,9 @@
 ## Self-Annealing Loop
 
 Errors are learning opportunities. When something breaks:
+
 1. Fix it
 2. Update the tool
 3. Test it — make sure it works
 4. Update the SKILL.md to include new flow
 5. System is now stronger
-

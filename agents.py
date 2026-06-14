@@ -122,6 +122,31 @@ async def calculate_birth_chart(from_profile: bool = True) -> str:
     return await _run(args)
 
 
+async def calculate_subdashas(json_only: bool = True) -> str:
+    """Calculate Antardasha (sub-periods) and Pratyantardasha (sub-sub-periods)
+    for the current Mahadasha. Use when the user asks about specific sub-period
+    timing, "what dasha am I in right now?", or detailed planetary period analysis.
+    json_only: return structured JSON (default True)."""
+    args = [sys.executable,
+        str(SKILLS_DIR / "vedic-astrology" / "scripts" / "calc_subdasha.py")]
+    if json_only:
+        args.append("--json-only")
+    return await _run(args)
+
+
+async def analyze_yogas(json_only: bool = True) -> str:
+    """Perform detailed yoga (planetary combination) analysis on the natal chart.
+    Checks Gajakesari, Chandra-Mangal, Budhaditya, Parivartana, Viparita Raja,
+    and other key yogas. Use when the user asks about their strengths, yogas,
+    or planetary combinations in their chart.
+    json_only: return structured JSON (default True)."""
+    args = [sys.executable,
+        str(SKILLS_DIR / "vedic-astrology" / "scripts" / "yoga_analysis.py")]
+    if json_only:
+        args.append("--json-only")
+    return await _run(args)
+
+
 async def web_search(mode: str, query: str) -> str:
     """Search the web via SerpAPI. Use when the user asks about current events,
     market trends, startup news, or any information beyond your training cutoff.
@@ -193,8 +218,9 @@ def _llm_provider() -> dict[str, Any]:
 # ── Agent factory ─────────────────────────────────────────────────────────────
 
 def build_agent() -> "GitHubCopilotAgent":
-    from agent_framework_github_copilot import GitHubCopilotAgent  # type: ignore[import]
-    from copilot.types import PermissionHandler                     # type: ignore[import]
+    from agent_framework_github_copilot import \
+        GitHubCopilotAgent  # type: ignore[import]
+    from copilot.types import PermissionHandler  # type: ignore[import]
 
     return GitHubCopilotAgent(
         name="agent-startup-guru",
@@ -205,6 +231,8 @@ def build_agent() -> "GitHubCopilotAgent":
             search_memory,
             check_transits,
             calculate_birth_chart,
+            calculate_subdashas,
+            analyze_yogas,
             web_search,
             research_person,
             ocr_extract,

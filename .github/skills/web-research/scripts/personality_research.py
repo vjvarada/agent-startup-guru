@@ -12,12 +12,13 @@ Usage:
     python personality_research.py --industry "3D printing India" --research-type "market"
 """
 
+import argparse
+import json
 import os
 import sys
-import json
-import argparse
 from datetime import datetime
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -30,7 +31,7 @@ TMP_SCRIPTS = TMP_DIR / "scripts"
 
 # web_search.py is a shared utility in .tmp/scripts/
 sys.path.insert(0, str(TMP_SCRIPTS))
-from web_search import search_google, search_news, get_api_key
+from web_search import get_api_key, search_google, search_news
 
 
 def research_founder(name, company=None, num_results=15):

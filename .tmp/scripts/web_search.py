@@ -20,12 +20,13 @@ Usage:
     python web_search.py --mode trends --query "3D printing,additive manufacturing"
 """
 
+import argparse
+import json
 import os
 import sys
-import json
-import argparse
 from datetime import datetime
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 load_dotenv()

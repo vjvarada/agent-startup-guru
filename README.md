@@ -7,6 +7,7 @@
 ## What This Agent Does
 
 **Startup Guru** is your AI mentor that combines:
+
 - **Vedic Astrology** — Birth chart analysis, Dasha periods, transit timing for decisions
 - **Startup Intelligence** — Indian & global ecosystem, hardware/deep-tech expertise
 - **Web Research** — Real-time search for market data, news, founder profiles
@@ -18,6 +19,7 @@
 **Double-click:** `startup-guru.code-workspace`
 
 VS Code will automatically:
+
 1. Open the workspace
 2. Prompt to trust the folder (click **Yes**)
 3. Run setup (creates venv, installs dependencies)
@@ -28,6 +30,7 @@ Then select **"Startup Guru"** from the Copilot Chat agent dropdown.
 ## First Run
 
 After setup, calculate your birth chart:
+
 ```bash
 python .tmp/scripts/birth_chart.py --from-profile --save
 ```
@@ -75,10 +78,10 @@ startup-guru/
 
 ## Required API Keys
 
-| Key | Required | Source |
-|-----|----------|--------|
-| `SERPAPI_API_KEY` | Yes | [serpapi.com](https://serpapi.com) — for web search |
-| `OPENAI_API_KEY` | No | Only for standalone mode (Copilot handles AI) |
+| Key               | Required | Source                                              |
+| ----------------- | -------- | --------------------------------------------------- |
+| `SERPAPI_API_KEY` | Yes      | [serpapi.com](https://serpapi.com) — for web search |
+| `OPENAI_API_KEY`  | No       | Only for standalone mode (Copilot handles AI)       |
 
 ## How It Works
 
@@ -91,4 +94,4 @@ startup-guru/
 
 ---
 
-*Built on the [DOE Framework](https://github.com/vjvarada/DOE-Framework-Agentic-AI)*
+_Built on the [DOE Framework](https://github.com/vjvarada/DOE-Framework-Agentic-AI)_

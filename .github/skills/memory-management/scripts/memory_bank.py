@@ -23,10 +23,10 @@ Usage:
     python memory_bank.py --search "funding"
 """
 
+import argparse
+import json
 import os
 import sys
-import json
-import argparse
 from datetime import datetime
 from pathlib import Path
 

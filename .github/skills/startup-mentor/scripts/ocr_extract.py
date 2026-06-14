@@ -14,13 +14,13 @@ Usage:
   python .github/skills/startup-mentor/scripts/ocr_extract.py --image path/to/image.png --format table
 """
 
-import os
-import sys
-import json
-import csv
-import re
-import io
 import argparse
+import csv
+import io
+import json
+import os
+import re
+import sys
 from pathlib import Path
 
 # ---------------------------------------------------------------------------

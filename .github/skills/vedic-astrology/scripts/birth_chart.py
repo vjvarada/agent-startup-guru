@@ -18,11 +18,11 @@ Usage:
     python birth_chart.py --save              # Saves chart to outputs/_memory/birth_chart.json
 """
 
-import os
-import sys
+import argparse
 import json
 import math
-import argparse
+import os
+import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 

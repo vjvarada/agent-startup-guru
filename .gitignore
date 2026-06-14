@@ -17,10 +17,12 @@ ENV/
 env/
 .venv/
 
-# .tmp/ — exclude everything except scripts/
-.tmp/*
-!.tmp/scripts/
-!.tmp/scripts/**
+# .tmp/ caches — structure tracked, contents not
+.tmp/search_cache/*.json
+.tmp/web_cache/*
+!.tmp/search_cache/README.md
+!.tmp/web_cache/README.md
+# .tmp/scripts/ IS tracked — shared utilities
 !.tmp/scripts/**
 
 # OS / IDE
@@ -35,18 +37,6 @@ Thumbs.db
 logs/
 
 # Keep .vscode/ settings
-!.vscode/
-
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-logs/
-
-# Don't ignore .vscode - we want the settings
 !.vscode/
 
 # Don't ignore memory - it's persistent state

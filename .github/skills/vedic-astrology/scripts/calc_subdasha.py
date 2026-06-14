@@ -21,7 +21,7 @@ MEMORY_DIR = REPO_ROOT / "outputs" / "_memory"
 
 # Import Dasha constants from sibling birth_chart module
 sys.path.insert(0, str(SCRIPT_DIR))
-from birth_chart import DASHA_YEARS, DASHA_SEQUENCE as DASHA_SEQ
+from birth_chart import DASHA_YEARS, DASHA_SEQUENCE as DASHA_SEQ, now_ist
 
 TOTAL = 120
 
@@ -37,7 +37,7 @@ def main(json_only=False):
         return
 
     chart = json.loads(chart_path.read_text(encoding="utf-8"))
-    now = datetime.now()
+    now = now_ist()
 
     rahu_dasha = chart.get("current_dasha")
     if not rahu_dasha:

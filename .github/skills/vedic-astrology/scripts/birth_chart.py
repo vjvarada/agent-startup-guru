@@ -23,7 +23,7 @@ import json
 import math
 import os
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import swisseph as swe
@@ -38,6 +38,16 @@ swe.set_sid_mode(swe.SIDM_LAHIRI)
 
 # IST (Indian Standard Time) offset from UTC in hours
 IST_OFFSET_HOURS = 5.5
+IST = timezone(timedelta(hours=5, minutes=30))
+
+
+def now_ist():
+    """Return current datetime in Indian Standard Time (UTC+5:30).
+
+    Uses timezone-aware datetime so calculations are correct regardless
+    of the system's local timezone setting.
+    """
+    return datetime.now(IST)
 
 RASHIS = [
     "Mesha (Aries)", "Vrishabha (Taurus)", "Mithuna (Gemini)",
@@ -371,7 +381,7 @@ def calculate_full_chart(date_str, time_str, lat, lon, city="Unknown"):
             "ayanamsa": round(ayanamsa, 4),
             "ayanamsa_type": "Lahiri",
             "calculation_note": "Calculated using Swiss Ephemeris (pyswisseph) with Lahiri ayanamsa.",
-            "calculated_at": datetime.now().isoformat()
+            "calculated_at": now_ist().isoformat()
         },
         "lagna": {},
         "planets": {},
@@ -442,7 +452,7 @@ def calculate_full_chart(date_str, time_str, lat, lon, city="Unknown"):
     chart["dashas"] = calculate_vimshottari_dasha(moon_deg, birth_dt_local)
 
     # Current Dasha
-    now = datetime.now()
+    now = now_ist()
     current_dasha = None
     for dasha in chart["dashas"]:
         start = datetime.strptime(dasha["start"], "%Y-%m-%d")
@@ -499,7 +509,7 @@ def print_chart_summary(chart):
     print(f"\n{'─' * 70}")
     print("  VIMSHOTTARI DASHA PERIODS")
     print(f"{'─' * 70}")
-    now = datetime.now()
+    now = now_ist()
     for dasha in chart["dashas"]:
         start = datetime.strptime(dasha["start"], "%Y-%m-%d")
         end = datetime.strptime(dasha["end"], "%Y-%m-%d")

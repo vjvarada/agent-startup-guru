@@ -30,7 +30,7 @@ MEMORY_DIR = REPO_ROOT / "outputs" / "_memory"
 sys.path.insert(0, str(SCRIPT_DIR))
 from birth_chart import (NAKSHATRA_LORDS, NAKSHATRAS, RASHI_LORDS, RASHIS,
                          approximate_planetary_positions, calculate_ayanamsa,
-                         get_nakshatra, get_rashi, local_to_utc,
+                         get_nakshatra, get_rashi, local_to_utc, now_ist,
                          tropical_to_sidereal)
 
 
@@ -54,7 +54,7 @@ def get_current_transits(target_date=None):
         Dict of planet -> {sidereal_longitude, rashi, nakshatra, etc.}
     """
     if target_date is None:
-        target_date = datetime.now()
+        target_date = now_ist()
 
     # Convert local time to UTC for astronomical calculations
     target_utc = local_to_utc(target_date)
@@ -233,7 +233,7 @@ def find_upcoming_transits(natal_chart, days_ahead=90):
     Scan upcoming period for significant transit events.
     """
     events = []
-    today = datetime.now()
+    today = now_ist()
 
     # Check each day
     for day_offset in range(0, days_ahead, 3):  # Check every 3 days for efficiency
@@ -262,7 +262,7 @@ def print_transit_report(transits, aspects, natal_chart):
     """Print formatted transit report."""
     print("\n" + "=" * 70)
     print("  CURRENT PLANETARY TRANSITS (Vedic/Sidereal)")
-    print(f"  Date: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print(f"  Date: {now_ist().strftime('%Y-%m-%d %H:%M')} IST")
     print("=" * 70)
 
     print(f"\n{'─' * 70}")
@@ -335,7 +335,7 @@ def main():
 
         if args.json_only:
             output = {
-                "date": (target_date or datetime.now()).strftime("%Y-%m-%d"),
+                "date": (target_date or now_ist()).strftime("%Y-%m-%d"),
                 "transits": transits,
                 "aspects": aspects
             }

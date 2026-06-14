@@ -11,7 +11,6 @@ Usage:
 import json
 import sys
 import argparse
-from datetime import datetime
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent.resolve()
@@ -21,7 +20,7 @@ MEMORY_DIR = REPO_ROOT / "outputs" / "_memory"
 
 # Import Rashi constants from sibling birth_chart module
 sys.path.insert(0, str(SCRIPT_DIR))
-from birth_chart import RASHIS, RASHI_LORDS
+from birth_chart import RASHIS, RASHI_LORDS, now_ist
 
 
 def main(json_only=False):
@@ -120,7 +119,7 @@ def main(json_only=False):
         "yogas_detected": yogas,
         "checks": checks,
         "total_yogas": len(yogas),
-        "calculated_at": datetime.now().isoformat()
+        "calculated_at": now_ist().isoformat()
     }
 
     if json_only:

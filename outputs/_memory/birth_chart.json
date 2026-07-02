@@ -9,7 +9,7 @@
     "ayanamsa": 23.7518,
     "ayanamsa_type": "Lahiri",
     "calculation_note": "Calculated using Swiss Ephemeris (pyswisseph) with Lahiri ayanamsa.",
-    "calculated_at": "2026-04-18T14:44:43.676568"
+    "calculated_at": "2026-06-26T16:15:58.652310+05:30"
   },
   "lagna": {
     "sidereal_longitude": 29.61,

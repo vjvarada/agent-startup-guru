@@ -455,8 +455,8 @@ def calculate_full_chart(date_str, time_str, lat, lon, city="Unknown"):
     now = now_ist()
     current_dasha = None
     for dasha in chart["dashas"]:
-        start = datetime.strptime(dasha["start"], "%Y-%m-%d")
-        end = datetime.strptime(dasha["end"], "%Y-%m-%d")
+        start = datetime.strptime(dasha["start"], "%Y-%m-%d").replace(tzinfo=IST)
+        end = datetime.strptime(dasha["end"], "%Y-%m-%d").replace(tzinfo=IST)
         if start <= now <= end:
             current_dasha = dasha
             break
@@ -511,10 +511,10 @@ def print_chart_summary(chart):
     print(f"{'─' * 70}")
     now = now_ist()
     for dasha in chart["dashas"]:
-        start = datetime.strptime(dasha["start"], "%Y-%m-%d")
-        end = datetime.strptime(dasha["end"], "%Y-%m-%d")
-        marker = " ← CURRENT" if start <= now <= end else ""
+        start = datetime.strptime(dasha["start"], "%Y-%m-%d").replace(tzinfo=IST)
+        end = datetime.strptime(dasha["end"], "%Y-%m-%d").replace(tzinfo=IST)
         partial = " (partial)" if dasha["is_partial"] else ""
+        marker = " ← CURRENT" if start <= now <= end else ""
         print(f"  {dasha['planet']:<10} {dasha['start']} to {dasha['end']}  ({dasha['years']} yrs{partial}){marker}")
 
     # Yogas

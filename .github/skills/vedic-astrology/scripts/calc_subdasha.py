@@ -21,7 +21,7 @@ MEMORY_DIR = REPO_ROOT / "outputs" / "_memory"
 
 # Import Dasha constants from sibling birth_chart module
 sys.path.insert(0, str(SCRIPT_DIR))
-from birth_chart import DASHA_YEARS, DASHA_SEQUENCE as DASHA_SEQ, now_ist
+from birth_chart import DASHA_YEARS, DASHA_SEQUENCE as DASHA_SEQ, now_ist, IST
 
 TOTAL = 120
 
@@ -48,8 +48,8 @@ def main(json_only=False):
             print(msg)
         return
 
-    rahu_start = datetime.strptime(rahu_dasha["start"], "%Y-%m-%d")
-    rahu_end = datetime.strptime(rahu_dasha["end"], "%Y-%m-%d")
+    rahu_start = datetime.strptime(rahu_dasha["start"], "%Y-%m-%d").replace(tzinfo=IST)
+    rahu_end = datetime.strptime(rahu_dasha["end"], "%Y-%m-%d").replace(tzinfo=IST)
 
     output = {"maha_dasha": rahu_dasha, "antardashas": [], "pratyantardashas": []}
 

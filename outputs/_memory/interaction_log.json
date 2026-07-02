@@ -249,9 +249,39 @@
       "advice_given": [],
       "follow_ups": [],
       "interaction_number": 19
+    },
+    {
+      "date": "2026-06-26T10:46:39.656188",
+      "summary": "Vijay asked for a Vedic astrology reading for his friend Susheel Kumar (born June 15, 1990, 1:05 PM, Mysore). Calculated full birth chart, dashas, transits, and yogas. Key findings: Virgo lagna, Aquarius Moon in Shatabhisha, Sun+Jupiter in 10th house Gemini, Saturn+Rahu in 5th. Major Saturn Mahadasha (2007-2026) ending July 23, 2026 — Mercury Mahadasha begins for 17 years. Transit Rahu is currently on his natal Moon. Budhaditya Yoga present.",
+      "topics": [
+        "vedic-astrology",
+        " birth-chart",
+        " friend-reading",
+        " dasha-transition"
+      ],
+      "advice_given": [],
+      "follow_ups": [],
+      "interaction_number": 20
+    },
+    {
+      "date": "2026-07-02T05:21:51.137047",
+      "summary": "Vijay sought negotiation advice for Constellation Aerospace deal with Jai/Punarjay Chakravarty. He's been working 6 months as verbal co-founder handling all technical ops (balloon flights, subsystems) with no equity or salary. Blue Hill Capital's $1M term sheet fell through (unfavorable terms). Jai + father now self-funding ₹2 Cr for 1-2 years, using Planet Labs/ISRO network for grant funding. Jai dropped equity offer from 50% (under Blue Hill) to 10%. Recommended: hybrid salary+equity structure — opening ask 22-25% equity + ₹2.5-3L/month + 6 months vesting credit + pro-rata rights. Floor: 15% + ₹2L/month. Advised on funding scenario impacts and astrological timing (Jupiter in 3rd house = negotiation window).",
+      "topics": [
+        "Constellation Aerospace",
+        " Jai Punarjay Chakravarty",
+        " equity negotiation",
+        " co-founder deal",
+        " self-funding",
+        " Blue Hill Capital",
+        " satellite components",
+        " high-altitude balloon"
+      ],
+      "advice_given": [],
+      "follow_ups": [],
+      "interaction_number": 21
     }
   ],
-  "total_interactions": 19,
-  "_last_updated": "2026-04-29T16:59:13.505183",
+  "total_interactions": 21,
+  "_last_updated": "2026-07-02T05:21:51.137058",
   "_note": "Mar 2-17 migrated from guru_memory.db on Apr 1. Mar 21+ native JSON."
 }

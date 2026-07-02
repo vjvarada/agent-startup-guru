@@ -1,0 +1,1 @@
+- 2026-06-26 10:46: Calculated full Vedic birth chart for Susheel Kumar (Vijay's friend): June 15, 1990, 1:05 PM, Mysore. Virgo lagna, Aquarius Moon, Sun+Jupiter in Gemini 10th house. Saturn-Saturn Mahadasha (2007-2026) ending July 23, 2026 — Mercury Mahadasha begins. Budhaditya Yoga present. Transit Rahu on natal Moon in Aquarius.

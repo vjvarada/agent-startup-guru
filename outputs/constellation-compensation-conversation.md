@@ -6,115 +6,121 @@
 ## Before You Begin
 
 - **Format:** In person. Not WhatsApp, not phone, not email.
-- **Tone:** Warm, direct, unemotional. This is math, not grievance.
-- **Goal:** Get Jai to see the asymmetry and commit to a fair structure.
-- **Your BATNA:** Keep Fracktal alive + consulting retainer with Constellation. You have a real alternative.
+- **Tone:** Warm, direct, unemotional. This is business, not grievance.
+- **Goal:** Lock in fair cash + small equity, with the freedom to pursue other opportunities.
+- **Your real position:** Constellation is one of several bets. You're not going all-in. You need cash now and a small lottery ticket if it works.
+- **Your BATNA:** Mayank/Conative AI retainer (₹1-1.5L/month + ₹5-10L CCMS lump sum) + keep Fracktal alive. You don't need Constellation — it needs to earn a slot in your portfolio.
 
 ---
 
 ## Phase 1: Establish the Handshake History
 
-> "Jai, before we get into numbers, I want to acknowledge where we've been. We've been working on this for 6 months now — the high-altitude balloon flights, the subsystems, getting GIMO confident in what we can deliver. I've put in real hours and real work during this time."
+> "Jai, let me start by acknowledging the last 6 months. The balloon flights, the subsystems, getting GIMO comfortable — I've put real hours into this. I haven't been compensated at all during this period."
 >
-> "I haven't been compensated at all. And I was fine with that, because the understanding was: we had a handshake deal where I'd be a substantial partner — around 40 to 45% equity. The plan was that when Blue Hill funding came through, I'd get around ₹2.5L a month in salary AND a meaningful equity stake. The salary would cover my basics, the equity would be the real upside."
+> "I was fine with that because we had a different understanding back then: 40-45% equity, ₹2.5L/month salary once Blue Hill came through. That was a co-founder deal. I also made real-life decisions around it — winding Fracktal down, cutting costs — to make room for Constellation."
 >
-> "I also made real-life decisions based on that understanding. I've been slowly winding Fracktal down — cutting operational costs by a few lakhs a month — to make room for Constellation full-time."
+> "But the situation has changed. Blue Hill fell through. Your family is stepping in with ₹2 Cr. The equity structure is completely different now. And honestly — I need to be honest with you — Constellation itself isn't concrete yet. We're still early. So I've had to think about this differently."
 
-**Why this matters:** You're not complaining. You're stating facts. The sacrifice was real. And crucially — even the original plan included ₹2.5L salary. The new deal isn't just less equity; it's the same cash with 75% less upside.
+**Why this matters:** You're not complaining. You're framing reality: the deal changed, Constellation isn't a sure thing, and you've adjusted your thinking accordingly. This sets up the non-exclusive ask naturally.
 
 ---
 
-## Phase 2: Acknowledge His Position (Then Pivot)
+## Phase 2: Acknowledge His Position
 
-> "Now, Blue Hill fell through — or the terms weren't good — and your family stepping in with ₹2 Cr to self-fund is a bold move. I respect it. I completely understand why your equity share increases — it's your family's money at risk. That's fair."
+> "I completely understand why you need to hold more equity now. It's your family's money. You're taking the real financial risk. I respect that — and I'm not here to renegotiate your cap table."
 >
-> "But here's what I need you to understand from my side. Under the original plan, I was getting ₹2.5L a month plus 40-45% equity. Under the new structure, you're offering me 10% equity with... what, similar cash? Effectively the same salary but my upside has been cut by 75-80%. That's not a rebalancing — that's a straight downgrade."
->
-> "The structure has fundamentally changed from 'co-founders building something together' to 'Vijay as a key hire with some shares.' And I'm not saying that to blame you — I'm saying it so we can be honest about what this deal actually is now."
+> "But here's the flip side. When equity drops from 40-45% to 10%, this stops being a co-founder arrangement and becomes something closer to a key contributor role. And that's fine — I'm not attached to the co-founder label. But the structure needs to match what it actually is."
 
-**Why this matters:** You're not asking for a raise. You're pointing out that the original deal was salary + substantial equity, and the new deal is... the same salary with far less equity. He may not have internalized that.
+**Why this matters:** Short, non-confrontational. You accept his new reality. Now you're just asking for the structure to be consistent with it.
 
 ---
 
-## Phase 3: The Core Principle (Equity ↔ Salary Slider)
+## Phase 3: The New Framework — Cash + Small Equity + Non-Exclusive
 
-> "I'm fine with 10%. I'm not here to renegotiate the equity split — you're funding it with family money, you should own most of it. But if my equity is significantly lower, then the cash needs to move up. That's just the trade-off: more equity means more founder sacrifice on salary. Less equity means less sacrifice."
+> "Here's where my head is at. I'm month-to-month personally. I've been uncompensated for 6 months. I can't afford to go all-in on something that's still being figured out. And honestly, I have other things I'm working on — I need to keep those doors open."
 >
-> "At 10%, I'm not a co-founder. I'm a key early hire with meaningful upside. The comp structure should reflect that — which means salary closer to market rate. Under the old plan, the ₹2.5L made sense because I was looking at 40-45% of a VC-funded company. At 10% of a self-funded company, that same ₹2.5L doesn't make sense anymore."
+> "So what makes sense to me is this: I contribute meaningfully to Constellation, I get a fair monthly cash arrangement, I take a small equity slice as a long-term incentive, and I'm not exclusive. I keep working on other projects on the side — including existing commitments."
 >
-> "I also want to be upfront about what I'm giving up. I'm walking away from being a founder with real equity and real say in a company I built over 15 years — to become a minority stakeholder in someone else's company. That's a downgrade in autonomy, identity, and long-term upside. The compensation has to acknowledge that."
+> "The way I see it, this actually works better for both of us. You get my best work without having to fund my entire life or pay a full CTO market salary. I get to keep my other income streams alive. And if Constellation takes off, the equity means I'm still aligned long-term."
 >
-> "If the plan was always that I'd wind down Fracktal to go all-in as an equal partner, then at 10%, that math doesn't close. If I'm not an equal partner here, I might as well keep Fracktal alive, take a consulting retainer with Constellation, and protect what I've already built."
+> "If I'm not an equal partner here, then it doesn't make sense for me to bet everything on Constellation. I might as well keep Fracktal alive, work with Mayank, and protect what I've already built — while still contributing to Constellation in a way that's fair to both of us."
 
-**Why this matters:** The ₹2.5L anchor from the original deal works IN YOUR FAVOR. It proves you're not being greedy — you're literally asking to keep the same salary from the original plan. The only difference is you want the cash to reflect the reduced equity.
+**Why this matters:** This is the core shift. You're not asking for permission to be non-exclusive — you're stating it as the logical structure. The equity becomes an alignment tool, not a trap.
 
 ---
 
-## Phase 4: Present the Options (He Chooses)
+## Phase 4: The Structure
 
-> "So here's where I am. I see three fair paths forward — any of these works for me."
+> "So here's what I'm proposing. It's simple."
 
-**Option A — Cash-Heavy, Full-Time (your preferred path):**
-> "10% equity, as you offered. ₹3-3.5L/month salary — reflecting the reduced upside and closer to market rate for what I bring. Standard founder vesting — 4 years, 1-year cliff, with full credit for the 6 months I've already put in. Pro-rata rights. I go all-in on Constellation."
+**The Deal:**
+> "A monthly retainer of ₹3-3.5L for defined scope — the subsystems, flight hardware, GIMO integration, whatever we agree on. 5% equity with standard 4-year vesting, 1-year cliff, with credit for the 6 months I've already served. Non-exclusive — I work on Constellation during agreed hours, and I manage my other projects on my own time."
+>
+> "And we settle the past 5-6 months of uncompensated work. I think ₹7.5-10L is fair for that period — less than the ₹2.5L/month we had in the original plan. Either as a lump sum or spread across the first few months of the retainer."
+>
+> "That's it. No complex negotiation. Cash that covers my basics. A small stake so I care about the long term. Freedom to pursue other things. And the past work acknowledged."
 
-**Option B — Moderate Equity + Moderate Cash:**
-> "We push equity closer to 18-22% — something that feels more like a co-founder. I take ₹2-2.5L/month, closer to the original plan. I'm still all-in, but with a stake that reflects the partnership we originally discussed."
-
-**Option C — Pure Consulting, No Equity:**
-> "I keep Fracktal running. I work with Constellation on a consulting retainer — ₹4-5L/month, clearly scoped deliverables. No equity, no long-term commitment. And we agree on fair compensation for the 5-6 months of work I've already put in — backpay at ₹1.5-2L/month for that period, either as a lump sum or spread over the first few consulting months. Simple, clean, no strings."
-
-> "Jai, any of these three works for me. I'm not here to squeeze you. But the one outcome that doesn't work is: low equity AND low salary AND my past work unacknowledged. That's the only combination I have to say no to."
-
-**Why this matters:** Three options — full-time cash-heavy, full-time equity-heavy, or consulting with no equity. All fair. All acknowledge past work. You give him full agency. The consulting option with backpay is your strongest fallback — pure cash, no dilution for him, you keep Fracktal.
+**Why this matters:** One structure, not three options. Clean. You're not presenting a menu — you're stating what works. The 5% is deliberately lower than his 10% offer — it signals "I don't need more equity, I need cash and freedom."
 
 ---
 
 ## Phase 5: Close With Clarity
 
-> "I want to be clear — I'm not here for the salary. I'm here because I believe in what we're building. The satellites, the balloon tests, the ISRO/Planet Labs connections — this is real. And I think my contribution over the last 6 months shows I'm committed."
+> "Jai, I want to be clear — I believe in what we're building. The satellite work, the ISRO connections, the Planet Labs angle — this is real. I want to be part of it."
 >
-> "But I also have to be honest with myself about what makes sense. If this is going to work long-term, the foundation has to be fair — for both of us. So let's figure out a structure we both feel good about."
+> "But I also have to be honest about my own situation. I'm month-to-month, I have other work lined up, and I can't put everything on hold for a bet that's still taking shape."
+>
+> "This structure lets me contribute at a high level without either of us over-committing. If Constellation takes off and you raise a real round, we can revisit — maybe I come in full-time at that point with a proper market package. But for now, let's build something fair that actually works."
 
 ---
 
 ## Why This Is Fair — Even From Jai's Perspective
 
-**If you're worried your ask seems unreasonable, here's why it isn't:**
+1. **You're asking for LESS equity than he offered.** He offered 10%. You're saying 5%. That saves him dilution and signals you're not here to grab his cap table.
 
-1. **You're not asking for more equity than he offered.** You accepted 10%. You're only adjusting the cash side, which is the logical consequence of reduced equity.
+2. **The ₹3-3.5L cash ask is below market.** A CTO with 15 years of hardware experience at an Indian spacetech startup commands ₹4-7L/month full-time. You're offering non-exclusive scope at a discount.
 
-2. **The original deal already had salary.** ₹2.5L/month was part of the Blue Hill plan. You're not introducing salary for the first time — you're keeping it consistent.
+3. **Non-exclusive is cheaper for him.** He doesn't have to fund your entire livelihood — just the Constellation work. You carry your own downside risk on the rest.
 
-3. **The ₹3-3.5L ask is below market.** A CTO with 15 years of hardware company experience at an Indian spacetech startup commands ₹4-7L/month. You're still at a discount.
+4. **The backpay ask is reasonable.** ₹7.5-10L for 5-6 months is ₹1.25-1.67L/month — well below the ₹2.5L/month from the original deal.
 
-4. **The consulting option is actually generous to him.** Pure cash, no dilution, no long-term commitment, no equity complexity. If he's worried about giving away equity, this is the cleanest path. And the backpay ask (₹7.5-10L total for 5-6 months) is reasonable — it's less than what you'd have earned under the original ₹2.5L plan.
+5. **You have real leverage and real alternatives.** You've built subsystems that gave Constellation credibility. Mayank's Conative AI work is a genuine fallback. You're not bluffing — you have actual other income lined up.
 
-5. **You have real leverage.** You've built subsystems that gave Constellation credibility. Replacing you means finding someone with your exact skill set, bringing them up to speed, and paying them market rate anyway — plus losing 6 months of institutional knowledge.
-
-6. **You're giving him choices, not demands.** Three paths. He picks. This is a partnership conversation, not a hostage negotiation.
+6. **This is actually the cleanest deal for him.** Less dilution, lower total cost than a full-time CTO, no exclusivity drama. If he says no to this, he's either irrational or doesn't actually value your contribution.
 
 ---
 
 ## After the Conversation
 
-1. **Send a follow-up email within 24 hours.** Summarize: "As we discussed, the three options on the table are A (10% + ₹3-3.5L), B (18-22% + ₹2-2.5L), and C (consulting + backpay). Let me know which direction you're leaning by [date ~2 weeks out]."
+1. **Send a follow-up email within 24 hours.** Summarize: "As we discussed: ₹3-3.5L/month retainer, 5% equity with 4-year vesting (6 months credit), non-exclusive, ₹7.5-10L backpay. Let me know if this works by [date ~1 week out]."
 
-2. **If he stalls:** "Jai, I need to make decisions about Fracktal's future. I can't keep both doors open indefinitely. Let's resolve this by [date]."
+2. **If he stalls:** "Jai, I'm month-to-month. I have other work I need to either accept or decline. I need clarity by [date]."
 
-3. **If he counters below your floor on all options:** "I appreciate the offer, but that doesn't work for me. Option C — consulting — is my baseline. Let's at least structure the past work compensation and keep things clean going forward."
+3. **If he pushes back on non-exclusivity:** "Jai, I'm happy to discuss what scope and hours work. But Constellation isn't funded enough yet for me to bet my entire livelihood on it. I need to keep my other income streams alive. If that's a dealbreaker, I understand — but it's where I am."
+
+4. **If he says no entirely:** You have Mayank. You have Fracktal. You have CMAT pipeline. You walk away clean, no bridges burned. "No hard feelings, Jai. Let's settle the past work and I'll hand over everything cleanly."
 
 ---
 
 ## Your Numbers At a Glance
 
-|  | Opening Ask | Your Floor |
+| Component | Your Ask | Your Floor |
 |---|---|---|
-| **Option A (Cash-Heavy, FT)** | 10% equity + ₹3.5L/month | 10% + ₹3L/month |
-| **Option B (Equity-Heavy, FT)** | 20% equity + ₹2.5L/month | 15% + ₹2L/month |
-| **Option C (Consulting)** | ₹5L/month retainer + ₹10L backpay | ₹4L/month + ₹7.5L backpay |
+| **Monthly retainer** | ₹3.5L/month | ₹3L/month |
+| **Equity** | 5% (4yr vest, 1yr cliff, 6mo credit) | 3% |
+| **Backpay (past 6 months)** | ₹10L lump sum | ₹7.5L |
+| **Exclusivity** | None — free to pursue other work | Non-negotiable |
 
-**Non-negotiables for Options A & B:** 4-year vesting with 1-year cliff, 6 months service credit, pro-rata rights.
+**Key principle:** Cash now, small equity for alignment, freedom to build your portfolio. Constellation earns a bigger commitment only when it's proven and funded.
 
-**Original deal reference (for context):** ₹2.5L/month salary + 40-45% equity, Blue Hill-funded. New deal must not be strictly worse than this.
+**Market context:** A CTO with 15 years of hardware company experience at a funded Indian spacetech startup commands ₹4-7L/month full-time. Your ₹3-3.5L ask for non-exclusive scope is a significant discount.
 
-**Market context:** A CTO with 15 years of hardware company experience at a funded Indian spacetech startup commands ₹4-7L/month. Even ₹3.5L is a significant discount.
+**Your fallback:** Mayank/Conative AI — ₹1-1.5L/month retainer + ₹5-10L CCMS lump sum. Not enough alone, but combined with Fracktal's army order buffer and CMAT pipeline, it covers your basics while you figure out what's next.
+
+---
+
+## One Final Note
+
+Vijay, this version of the script reflects who you actually are right now — not who you were 6 months ago when you were ready to go all-in on Constellation. You're a portfolio thinker now: Constellation, Mayank, Fracktal, CMAT, agents. That's not weakness — it's diversification. And it's the right posture when none of these bets are proven yet.
+
+The old script was about fighting for a co-founder seat that no longer exists. This script is about getting paid fairly for your contribution while keeping your options open. It's a better deal for both sides. And it's honest.

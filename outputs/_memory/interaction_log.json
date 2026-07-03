@@ -279,9 +279,74 @@
       "advice_given": [],
       "follow_ups": [],
       "interaction_number": 21
+    },
+    {
+      "date": "2026-07-02T09:30:57.506837",
+      "summary": "Vijay discussed Mayank partnership structure. CMMS project (mining/power grid asset management) is slow, on success-fee basis with no verification. Mayank wants Vijay to build additional software tools. Vijay raised concerns about: (1) pure success-fee not working for future projects, wants retainer + profit share, (2) pre-existing Fracktal IP protection — licensing vs assignment, (3) no way to verify Mayank's books. Provided structured legal discussion framework covering engagement structure, IP ownership categories, audit rights, scope definition, non-compete, termination, and entity structure. Advised three non-negotiables: retainer, IP licensing, audit rights.",
+      "topics": [
+        "partnership-structure",
+        " legal-framework",
+        " IP-protection",
+        " retainer-model",
+        " Mayank-engagement"
+      ],
+      "advice_given": [],
+      "follow_ups": [],
+      "interaction_number": 22
+    },
+    {
+      "date": "2026-07-02T18:10:31.643012",
+      "summary": "Vijay closed a ₹1.5L/month consulting contract with Constellation Aerospace via Chair. Non-exclusive, easy work, AI subscriptions covered. Equity conversation deferred to a few months when Constellation has clarity. Vijay is satisfied with the deal. Advised: treat equity as potential bonus only, guard scope against creep, lock in a light scope document.",
+      "topics": [
+        "Constellation-Aerospace",
+        " consulting-deal",
+        " equity-deferred",
+        " cash-flow",
+        " non-exclusive"
+      ],
+      "advice_given": [],
+      "follow_ups": [],
+      "interaction_number": 23
+    },
+    {
+      "date": "2026-07-02T19:10:36.612955",
+      "summary": "Provided July 2026 monthly outlook. Current dasha: Rahu/Venus/Mercury (until Sep 18, 2026). Jupiter exalted in Cancer (4th house) aspecting 10th house career — period of emotional stabilization and steady income. Key transit: Jupiter in 4th giving domestic peace, Saturn in 12th keeping expenses controlled, Rahu in 11th expanding networks. Mercury Pratyantar window favorable for contracts until Sep 18, after which Ketu Pratyantar starts — communication may get foggy. Advised pushing Mayank agreement, Constellation scope doc, and CMET tender to closure before mid-September.",
+      "topics": [
+        "monthly-outlook",
+        " July-2026",
+        " transits",
+        " dasha-analysis",
+        " timing",
+        " contracts"
+      ],
+      "advice_given": [],
+      "follow_ups": [],
+      "interaction_number": 24
+    },
+    {
+      "date": "2026-07-03T07:42:42.157714",
+      "summary": "Comprehensive status update from Vijay. All debtors cleared (Army ₹50L, Amace ₹24.5L, TechnoVentor ₹5.9L). CMET tender won (₹25L) but awaiting internal committee approval. Constellation Aerospace: ₹1.5L/month consulting deal not yet contracted — Jay dragging, Vijay pushing for pre-dated June start. Mayank: still waiting for response, Vijay plans to use Constellation model as template. Fracktal crossroads resolved in practice — not exiting, instead building CommandCenter AI agent platform to manage company with fewer people. RapidTools progressing (jigs, fixtures, shadow boxes done, soft jaws in progress). Virtual surgery planning engine for craniomaxillofacial built — CT/MRI to 3D printable models with automatic bone segmentation. Strategy: bundle AI software with upgraded Julia printers for industrial tooling and medical verticals to command premium pricing vs Bamboo Labs. IDEX military grant submitted for containerized 3D printing on front lines. Athirav cloud venture on back burner. Building Fracktal job work portal. Took Higgsfield subscription for marketing videos. CommandCenter currently personal tool but potential consulting/venture play with Nitin. Marriage: separate rooms, considering therapy, 50/50 on outcome — giving each other space.",
+      "topics": [
+        "full-status-update",
+        " debtors-cleared",
+        " CMET-won",
+        " CommandCenter",
+        " AI-agents",
+        " RapidTools",
+        " virtual-surgery-planning",
+        " Julia-upgrade",
+        " IDEX-grant",
+        " marketing-strategy",
+        " marriage-update",
+        " Constellation-pending",
+        " Mayank-pending"
+      ],
+      "advice_given": [],
+      "follow_ups": [],
+      "interaction_number": 25
     }
   ],
-  "total_interactions": 21,
-  "_last_updated": "2026-07-02T05:21:51.137058",
+  "total_interactions": 25,
+  "_last_updated": "2026-07-03T07:42:42.157727",
   "_note": "Mar 2-17 migrated from guru_memory.db on Apr 1. Mar 21+ native JSON."
 }

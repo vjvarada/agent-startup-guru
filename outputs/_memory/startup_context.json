@@ -200,27 +200,16 @@
         "grant_potential": "Up to Rs 1 crore, milestone-based",
         "strategy": "Develop RapidTool under Bloc42, spin off as independent venture after milestone completion. Vijay's prior experience with Fracktal winning Elevate: government does not scrutinize corporate restructuring post-milestone completion.",
         "why_bloc42": "Fracktal ineligible this year (won Elevate 2 years ago)",
-        "open_items": ["Vijay ownership % in Bloc42", "Ishan role in RapidTool going forward", "Spin-off structure + timeline", "Elevate grant agreement IP clauses (RoC to KA required within 4 months)"]
+        "open_items": [
+          "Vijay ownership % in Bloc42",
+          "Ishan role in RapidTool going forward",
+          "Spin-off structure + timeline",
+          "Elevate grant agreement IP clauses (RoC to KA required within 4 months)"
+        ]
       }
     }
   },
-  "personal": {
-    "wife": {
-      "name": "Dipasha Mukherji",
-      "birth_date": "1992-09-15",
-      "birth_time": "20:55",
-      "birth_city": "Delhi, India",
-      "lagna": "Mesha (Aries)",
-      "moon_sign": "Mesha (Aries)",
-      "current_dasha": "Moon-Saturn antardasha (Feb 2025 - Sep 2026)",
-      "current_pratyantardasha": "Moon-Saturn-Rahu (Apr 5 - Jul 1, 2026)",
-      "sade_sati": "RISING PHASE — Saturn in Pisces, 12th from natal Moon",
-      "situation": "Wants divorce after fight Apr 17, 2026. Feels alone due to Vijay's unavailability and stress-induced emotional detachment. Also dealing with childhood/early adulthood trauma affecting coping mechanisms. Moon-Saturn-Rahu pratyantardasha = peak emotional crisis period. Sade Sati beginning adds structural pressure.",
-      "chart_note": "Recalculated 2026-04-18 with Swiss Ephemeris. Lagna is Aries (was incorrectly listed as Aquarius)."
-    },
-    "current_location": "Army workshop, Haryana — peaceful environment",
-    "vijay_state": "{date:2026-04-26,theme:Seeking sustained clarity after temporary psychedelic ego-dissolution state,core_pattern:Since taking full charge of Fracktal after co-founder fallout in 2020, Vijay reports increased work fatigue, emotional reactivity to daily business stress, reduced presence at home with Dipasha, and loss of earlier spiritual steadiness and social vitality.,recent_trigger:Psilocybin trip on 2026-04-25 briefly restored a felt sense of ego death, clarity, and emotional agency, but anxiety and work-related pressure returned after the acute effects wore off.,current_question:How to live with stable clarity rather than temporary chemically-induced insight.}"
-  },
+  "personal": "Marriage on shaky ground — separate rooms, considering therapy, 50/50 on outcome, giving each other space",
   "strategic_pivot_discussion": {
     "trigger": "Mentor Debesh Sharma, prompted by marriage crisis and Vijay's burnout",
     "proposal": "Wind down or find acquirer for Fracktal Works. Start new venture: cloud-based manufacturing service",
@@ -346,7 +335,7 @@
       "note": "Investment tied specifically to SLS project delivery. Project now over-timeline with no resolution."
     }
   ],
-  "_last_updated": "2026-04-26T16:10:37.233441",
+  "_last_updated": "2026-07-03T07:43:24.058660",
   "team": {
     "size": 20,
     "key_changes_mar_2026": {
@@ -441,5 +430,21 @@
     "status_apr_2026": "Deprioritized. Vijay focused on Fracktal/defense pivot evaluation.",
     "original_connection": "Vijay approached as potential 3D printing vendor for aerospace"
   },
-  "_reorganized": "2026-04-01 — Merged JSON + SQLite memory systems. Added Applied Additive, team context, satellite opportunity, Namala/Shailesh/Punarjay relationships."
+  "_reorganized": "2026-04-01 — Merged JSON + SQLite memory systems. Added Applied Additive, team context, satellite opportunity, Namala/Shailesh/Punarjay relationships.",
+  "debtors_cleared": true,
+  "financial_status": "all debtors collected, healthy cash position as of July 2026",
+  "active_projects": {
+    "command_center": "AI agent orchestration platform — personal tool, potential consulting venture with Nitin",
+    "virtual_surgery_planning": "CT/MRI to 3D printable models with automatic bone segmentation — not yet tested with clinicians",
+    "rapidtools": "Jigs, fixtures, shadow boxes done. Soft jaws in progress.",
+    "idex_grant": "Submitted for containerized 3D printing on front lines. Debesh suggested. Fathers Army connections being explored.",
+    "fracktal_job_portal": "Building job work portal for Fracktal",
+    "julia_upgrade": "Improving Julia printers, bundling AI software for premium pricing in industrial tooling and medical verticals"
+  },
+  "pending_deals": {
+    "cmet": "Tender won (25L), awaiting internal committee approval",
+    "constellation_aerospace": "1.5L/month consulting, contract not yet signed, pushing for pre-dated June start",
+    "mayank": "Awaiting response after lawyer meeting, plan to use Constellation model as template"
+  },
+  "strategy": "Double down on Fracktal with AI agents. Bundle software with hardware. Premium vertical pricing vs Bamboo Labs."
 }

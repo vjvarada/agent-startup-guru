@@ -344,9 +344,38 @@
       "advice_given": [],
       "follow_ups": [],
       "interaction_number": 25
+    },
+    {
+      "date": "2026-07-04T05:17:21.627474",
+      "summary": "Vijay drafted emotional escalation message to Jay about Constellation deal — grievances about past work, \"wind down Fracktal\" comment, loss of equity path. After honest pushback, clarified his real goal: keep the ₹1.5L deal + get symbolic acknowledgment of past months. Restructured message to: (1) confirm existing deal first, (2) separate past work as a clean one-time ₹2L ask, (3) remove emotional language and the wind-down-Fracktal grievance. Message sent direct to Jay.",
+      "topics": [
+        "Constellation-Aerospace",
+        " Jay-negotiation",
+        " past-work-compensation",
+        " deal-restructuring"
+      ],
+      "advice_given": [],
+      "follow_ups": [],
+      "interaction_number": 26
+    },
+    {
+      "date": "2026-07-17T19:36:50.104276",
+      "summary": "Deep marriage crisis counseling session. Vijay sleeping separately from Dipasha. She says his presence irritates her. Key revelation: Dipasha reached out to Vijay's family/friends about marital issues, but her communication style (Mars-Ketu in 3rd) landed as disrespect — entire family/friends now side with Vijay. She feels cornered and betrayed. Vijay is 50-50 on marriage. Full cross-correlation analysis of both charts: both being hammered by Saturn simultaneously in complementary ways. His withdrawal (Moon-Saturn natal) triggers her lashing out (Moon Aries + Mars-Ketu), which triggers his further withdrawal. Negative feedback loop. Dipasha in Sade Sati Phase 1 + Moon-Saturn dasha = genuine psychological distress. Family bridges likely burned permanently or will take years. Recommended: no decision during Moon pratyantar (until Sep 18), decisive conversation during Mars pratyantar (Sep 18-Nov 21), and honest self-assessment of whether he wants this regardless of her answer.",
+      "topics": [
+        "marriage crisis",
+        " Dipasha chart analysis",
+        " Saturn transit",
+        " Sade Sati",
+        " compatibility analysis",
+        " family dynamics",
+        " divorce consideration"
+      ],
+      "advice_given": [],
+      "follow_ups": [],
+      "interaction_number": 27
     }
   ],
-  "total_interactions": 25,
-  "_last_updated": "2026-07-03T07:42:42.157727",
+  "total_interactions": 27,
+  "_last_updated": "2026-07-17T19:36:50.104291",
   "_note": "Mar 2-17 migrated from guru_memory.db on Apr 1. Mar 21+ native JSON."
 }

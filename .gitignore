@@ -41,3 +41,12 @@ logs/
 
 # Don't ignore memory - it's persistent state
 # (but DO ignore memory/birth_chart.json if it contains sensitive data)
+
+# CommandCenter agent workspace (auto-managed)
+# Agent-generated deliverables are runtime state, never source. Keeping them
+# untracked means the local-git mutation flow (git add -A / git reset --hard
+# on rejection) can never stage or wipe them, so outputs/ persists across
+# redeploys, reboots, and self-mutation rollbacks.
+outputs/
+inputs/
+agent-data/

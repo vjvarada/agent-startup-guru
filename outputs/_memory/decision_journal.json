@@ -1,5 +1,17 @@
 {
-  "decisions": [],
-  "total_decisions": 0,
-  "_last_updated": "2026-03-02T00:00:00"
+  "decisions": [
+    {
+      "id": 1,
+      "date": "2026-07-03T09:22:14.797951",
+      "decision": "Shifted Constellation negotiation from exclusive full-time to non-exclusive retainer: ₹3-3.5L/month, 5% equity (down from offered 10%), freedom to pursue Mayank/Conative AI and other opportunities. Constellation is now one bet in a portfolio, not the only bet.",
+      "context": "Vijay has zero personal runway, Fracktal burning ₹1-3L/month, Mayank offering ₹1-1.5L/month + ₹5-10L CCMS lump sum. Constellation itself is not yet concrete — no reason to go all-in.",
+      "astrological_timing": "July 2026 — Rahu Mahadasha, Saturn transit. Decision made before sitting down with Jai.",
+      "expected_outcome": "",
+      "actual_outcome": null,
+      "status": "pending",
+      "outcome_recorded": false
+    }
+  ],
+  "total_decisions": 1,
+  "_last_updated": "2026-07-03T09:22:14.797962"
 }

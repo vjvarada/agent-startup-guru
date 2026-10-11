@@ -39,14 +39,22 @@ logs/
 # Keep .vscode/ settings
 !.vscode/
 
-# Don't ignore memory - it's persistent state
-# (but DO ignore memory/birth_chart.json if it contains sensitive data)
-
 # CommandCenter agent workspace (auto-managed)
 # Agent-generated deliverables are runtime state, never source. Keeping them
 # untracked means the local-git mutation flow (git add -A / git reset --hard
 # on rejection) can never stage or wipe them, so outputs/ persists across
 # redeploys, reboots, and self-mutation rollbacks.
-outputs/
+#
+# EXCEPTION: the persistent memory bank and working notes ARE source — they must
+# travel with the repo so a session can be resumed on another machine. The
+# negations below re-include those paths even though their parent dir is ignored.
+# Without an explicit carve-out, git silently drops any NEW file written there
+# (a plain `git add -A` would miss it — that is how outputs/bangalore-weather.html
+# went untracked).
+outputs/*
+!outputs/_memory/
+!outputs/_memory/**
 inputs/
-agent-data/
+agent-data/*
+!agent-data/NOTES.md
+!agent-data/INDEX.md

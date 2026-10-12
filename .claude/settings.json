@@ -1,0 +1,24 @@
+{
+  "env": {
+    "PYTHONPATH": ".tmp/scripts",
+    "PYTHONUTF8": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(python .github/skills/*/scripts/*.py:*)",
+      "Bash(python .tmp/scripts/*.py:*)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .github/skills/memory-management/scripts/briefing.py"
+          }
+        ]
+      }
+    ]
+  }
+}

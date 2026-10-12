@@ -87,5 +87,5 @@ python .github/skills/web-research/scripts/personality_research.py --industry "3
 2. Read raw results (JSON output)
 3. Synthesize into actionable insight (you do this, not a script)
 4. Present to Vijay with relevance to his situation
-5. If the insight is durable, add to `outputs/_outputs/_memory/insights.md`
-6. If about a recurring topic, update `outputs/_outputs/_memory/startup_context.json`
+5. If the insight is durable, add to `outputs/_memory/insights.md`
+6. If about a recurring topic, update `outputs/_memory/startup_context.json`

@@ -27,7 +27,7 @@ import argparse
 import json
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent.resolve()
@@ -41,8 +41,45 @@ MEMORY_FILES = {
     "startup_context": "startup_context.json",
     "interaction_log": "interaction_log.json",
     "decision_journal": "decision_journal.json",
-    "insights": "insights.md"
+    "insights": "insights.md",
+    "interaction_archive": "interaction_archive.json",
 }
+
+# Not part of `--read all`: archived history is searched via memory_db.py, not preloaded.
+ARCHIVE_ONLY = {"interaction_archive"}
+
+DEFAULT_REVIEW_DAYS = 30
+
+
+# ---------------------------------------------------------------------------
+# SQLite mirror. JSON stays the source of truth; every JSON write is mirrored
+# into guru_memory.db so Tier 2 search never goes stale. A mirror failure never
+# loses the JSON write, but it is reported loudly (run `memory_db.py sync`).
+# ---------------------------------------------------------------------------
+
+def _db():
+    sys.path.insert(0, str(SCRIPT_DIR))
+    import memory_db
+    conn = memory_db.get_db()
+    memory_db.init_db(conn)
+    return memory_db, conn
+
+
+def _mirror(label, fn):
+    try:
+        mdb, conn = _db()
+        try:
+            fn(mdb, conn)
+        finally:
+            conn.close()
+    except Exception as e:  # noqa: BLE001 - must never lose the JSON write
+        print(f"WARNING: SQLite mirror failed for {label}: {e}. "
+              f"JSON saved; run `python {Path(__file__).name.replace('memory_bank', 'memory_db')} sync` to repair.",
+              file=sys.stderr)
+
+
+def _csv(items):
+    return ",".join(i.strip() for i in (items or []) if i and i.strip())
 
 
 def ensure_memory_dir():
@@ -68,7 +105,8 @@ def read_memory(memory_type):
     filepath = MEMORY_DIR / MEMORY_FILES[memory_type]
 
     if not filepath.exists():
-        print(f"Memory file not found: {filepath}")
+        if memory_type not in ARCHIVE_ONLY:
+            print(f"Memory file not found: {filepath}")
         return {} if filepath.suffix == ".json" else ""
 
     if filepath.suffix == ".json":
@@ -86,6 +124,8 @@ def read_all_memory():
     """Read all memory files and return combined state."""
     state = {}
     for memory_type in MEMORY_FILES:
+        if memory_type in ARCHIVE_ONLY:
+            continue
         state[memory_type] = read_memory(memory_type)
     return state
 
@@ -195,18 +235,23 @@ def log_interaction(summary, topics=None, advice_given=None, follow_ups=None):
         "topics": topics or [],
         "advice_given": advice_given or [],
         "follow_ups": follow_ups or [],
-        "interaction_number": len(log["interactions"]) + 1
+        # Monotonic across consolidation (archived entries still count).
+        "interaction_number": max(log.get("total_interactions", 0), len(log["interactions"])) + 1
     }
 
     log["interactions"].append(entry)
-    log["total_interactions"] = len(log["interactions"])
+    log["total_interactions"] = entry["interaction_number"]
     log["_last_updated"] = datetime.now().isoformat()
 
     write_memory("interaction_log", log)
+    _mirror("interaction", lambda mdb, conn: mdb.log_interaction(
+        conn, summary, _csv(topics), _csv(advice_given), _csv(follow_ups),
+        json_key=entry["date"], date=entry["date"]))
     return entry
 
 
-def log_decision(decision, context=None, astrological_timing=None, expected_outcome=None, actual_outcome=None):
+def log_decision(decision, context=None, astrological_timing=None, expected_outcome=None, actual_outcome=None,
+                 review_by=None):
     """
     Log a decision to the decision journal.
 
@@ -216,6 +261,7 @@ def log_decision(decision, context=None, astrological_timing=None, expected_outc
         astrological_timing: Relevant planetary positions/transits
         expected_outcome: What we expect to happen
         actual_outcome: What actually happened (updated later)
+        review_by: YYYY-MM-DD to revisit the outcome (default: today + 30 days)
     """
     journal = read_memory("decision_journal")
     if not isinstance(journal, dict):
@@ -231,6 +277,7 @@ def log_decision(decision, context=None, astrological_timing=None, expected_outc
         "astrological_timing": astrological_timing or "",
         "expected_outcome": expected_outcome or "",
         "actual_outcome": actual_outcome,
+        "review_by": review_by or (datetime.now() + timedelta(days=DEFAULT_REVIEW_DAYS)).strftime("%Y-%m-%d"),
         "status": "pending",
         "outcome_recorded": False
     }
@@ -240,6 +287,9 @@ def log_decision(decision, context=None, astrological_timing=None, expected_outc
     journal["_last_updated"] = datetime.now().isoformat()
 
     write_memory("decision_journal", journal)
+    _mirror("decision", lambda mdb, conn: mdb.log_decision(
+        conn, decision, context or "", astrological_timing or "", expected_outcome or "",
+        entry["review_by"], json_key=entry["date"], date=entry["date"]))
     return entry
 
 
@@ -258,6 +308,13 @@ def update_decision_outcome(decision_id, actual_outcome, status="completed"):
             entry["outcome_date"] = datetime.now().isoformat()
             write_memory("decision_journal", journal)
             print(f"Updated decision #{decision_id} outcome")
+
+            def _sync_outcome(mdb, conn):
+                conn.execute("""UPDATE decisions SET actual_outcome=?, status=?, outcome_date=datetime('now')
+                                WHERE json_key=? OR (json_key IS NULL AND substr(date,1,10)=?)""",
+                             (actual_outcome, status, entry["date"], entry["date"][:10]))
+                conn.commit()
+            _mirror("decision outcome", _sync_outcome)
             return
 
     print(f"Decision #{decision_id} not found")
@@ -292,6 +349,44 @@ def add_insight(insight_text, category=None):
         f.write(content)
 
     print(f"Insight added to {filepath}")
+    _mirror("insight", lambda mdb, conn: mdb.add_insight(conn, insight_text, category or "general"))
+
+
+def consolidate(keep=15):
+    """Move all but the newest `keep` interactions to interaction_archive.json so the
+    working log stays small. Nothing is deleted: archived entries remain searchable in
+    SQLite, and the DB is verified to contain them before anything is moved."""
+    log = read_memory("interaction_log")
+    items = sorted(log.get("interactions", []), key=lambda e: e.get("date", ""))
+    if len(items) <= keep:
+        print(f"Nothing to consolidate ({len(items)} interactions <= keep={keep})")
+        return 0
+    mdb, conn = _db()
+    try:
+        mdb.sync_from_json(conn)
+        old, recent = items[:-keep], items[-keep:]
+        for e in old:
+            row = conn.execute(
+                "SELECT 1 FROM interactions WHERE json_key=? OR (json_key IS NULL AND substr(date,1,10)=?)",
+                (e["date"], e["date"][:10])).fetchone()
+            if not row:
+                raise RuntimeError(f"Aborting: interaction {e['date']} is not in the SQLite index")
+    finally:
+        conn.close()
+
+    archive = read_memory("interaction_archive") or {}
+    archive.setdefault("interactions", [])
+    seen = {e["date"] for e in archive["interactions"]}
+    archive["interactions"].extend(e for e in old if e["date"] not in seen)
+    archive["_last_updated"] = datetime.now().isoformat()
+    write_memory("interaction_archive", archive)
+
+    log["interactions"] = recent
+    log["total_interactions"] = max(log.get("total_interactions", 0), len(items))
+    log["_last_updated"] = datetime.now().isoformat()
+    write_memory("interaction_log", log)
+    print(f"Archived {len(old)} interactions; {len(recent)} remain in the working log.")
+    return len(old)
 
 
 def search_memory(query):
@@ -390,6 +485,21 @@ def main():
     parser.add_argument("--status", action="store_true", help="Show memory bank status")
     parser.add_argument("--update-outcome", type=int, help="Decision ID to update outcome")
     parser.add_argument("--outcome", type=str, help="Actual outcome text")
+    parser.add_argument("--advice", type=str, help="Advice given, ';'-separated (with --log-interaction)")
+    parser.add_argument("--follow-ups", type=str, help="Follow-up items, ';'-separated (with --log-interaction)")
+    parser.add_argument("--expected", type=str, help="Expected outcome (with --log-decision)")
+    parser.add_argument("--review-by", type=str, help="YYYY-MM-DD to revisit a decision (default +30d)")
+    parser.add_argument("--remember", type=str, help="Store a dated, searchable fact")
+    parser.add_argument("--entity", type=str, help="Entity the fact is about (with --remember)")
+    parser.add_argument("--supersedes", type=int, help="Fact ID this new fact replaces (with --remember)")
+    parser.add_argument("--add-commitment", type=str, help="Record an open commitment / follow-up")
+    parser.add_argument("--due", type=str, help="YYYY-MM-DD due date (with --add-commitment)")
+    parser.add_argument("--close-commitment", type=int, help="Commitment ID to close")
+    parser.add_argument("--dropped", action="store_true", help="Close as dropped instead of done")
+    parser.add_argument("--note", type=str, default="", help="Note when closing a commitment")
+    parser.add_argument("--consolidate", action="store_true", help="Archive old interactions (keeps newest N)")
+    parser.add_argument("--keep", type=int, default=15, help="Interactions to keep with --consolidate")
+    parser.add_argument("--sync", action="store_true", help="Backfill SQLite from the JSON files")
 
     args = parser.parse_args()
 
@@ -407,19 +517,54 @@ def main():
         if not args.summary:
             print("Error: --summary required for logging interaction")
             sys.exit(1)
-        topics = args.topics.split(",") if args.topics else []
-        entry = log_interaction(args.summary, topics=topics)
+        split = lambda s: [x.strip() for x in s.split(";") if x.strip()] if s else []  # noqa: E731
+        topics = [x.strip() for x in args.topics.split(",") if x.strip()] if args.topics else []
+        entry = log_interaction(args.summary, topics=topics, advice_given=split(args.advice),
+                                follow_ups=split(args.follow_ups))
         print(json.dumps(entry, indent=2))
 
     elif args.log_decision:
         if not args.decision:
             print("Error: --decision required")
             sys.exit(1)
-        entry = log_decision(args.decision, context=args.context, astrological_timing=args.timing)
+        entry = log_decision(args.decision, context=args.context, astrological_timing=args.timing,
+                             expected_outcome=args.expected, review_by=args.review_by)
         print(json.dumps(entry, indent=2))
 
     elif args.update_outcome and args.outcome:
         update_decision_outcome(args.update_outcome, args.outcome)
+
+    elif args.remember:
+        mdb, conn = _db()
+        try:
+            mdb.add_fact(conn, args.remember, args.category or "general", args.entity or "",
+                         supersedes=args.supersedes)
+        finally:
+            conn.close()
+
+    elif args.add_commitment:
+        mdb, conn = _db()
+        try:
+            mdb.add_commitment(conn, args.add_commitment, args.due)
+        finally:
+            conn.close()
+
+    elif args.close_commitment:
+        mdb, conn = _db()
+        try:
+            mdb.close_commitment(conn, args.close_commitment, "dropped" if args.dropped else "done", args.note)
+        finally:
+            conn.close()
+
+    elif args.consolidate:
+        consolidate(args.keep)
+
+    elif args.sync:
+        mdb, conn = _db()
+        try:
+            mdb.sync_from_json(conn)
+        finally:
+            conn.close()
 
     elif args.add_insight:
         add_insight(args.add_insight, category=args.category)

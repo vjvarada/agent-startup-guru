@@ -88,6 +88,15 @@ async def read_memory(section: str = "all") -> str:
         "--read", section])
 
 
+async def get_briefing() -> str:
+    """Compact session-start briefing (~6 KB): profile essentials, memory freshness
+    warnings, open commitments, decisions awaiting review, recent sessions, current
+    state, newest facts. Call this at the start of every session instead of
+    read_memory('all')."""
+    return await _run([sys.executable,
+        str(SKILLS_DIR / "memory-management" / "scripts" / "briefing.py")])
+
+
 async def search_memory(query: str, search_type: str = "") -> str:
     """Full-text search across all past interactions, facts, entities, and insights.
     Use when looking for specific past events, people, or detailed historical context.
@@ -179,24 +188,31 @@ async def ocr_extract(image_path: str, output_format: str = "json") -> str:
         "--image", image_path, "--format", output_format])
 
 
-async def log_interaction(summary: str, topics: str = "", advice: str = "") -> str:
+async def log_interaction(summary: str, topics: str = "", advice: str = "", follow_ups: str = "") -> str:
     """Log a conversation interaction to persistent memory. Use after substantive
     exchanges to ensure continuity across sessions.
     summary: brief summary of the discussion.
-    topics: comma-separated topics. advice: key advice given."""
+    topics: comma-separated topics. advice: key advice given, ';'-separated.
+    follow_ups: things to follow up on next time, ';'-separated."""
     args = [sys.executable,
         str(SKILLS_DIR / "memory-management" / "scripts" / "memory_bank.py"),
         "--log-interaction", "--summary", summary]
     if topics:
         args.extend(["--topics", topics])
+    if advice:
+        args.extend(["--advice", advice])
+    if follow_ups:
+        args.extend(["--follow-ups", follow_ups])
     return await _run(args)
 
 
-async def log_decision(decision: str, context: str = "", timing: str = "") -> str:
+async def log_decision(decision: str, context: str = "", timing: str = "",
+                       expected: str = "", review_by: str = "") -> str:
     """Log a decision to the decision journal. Use when Vijay makes a significant
     business or personal decision to track outcomes over time.
     decision: the decision made. context: surrounding circumstances.
-    timing: astrological timing context."""
+    timing: astrological timing context. expected: what outcome is expected.
+    review_by: YYYY-MM-DD to revisit the outcome (default: 30 days)."""
     args = [sys.executable,
         str(SKILLS_DIR / "memory-management" / "scripts" / "memory_bank.py"),
         "--log-decision", "--decision", decision]
@@ -204,6 +220,37 @@ async def log_decision(decision: str, context: str = "", timing: str = "") -> st
         args.extend(["--context", context])
     if timing:
         args.extend(["--timing", timing])
+    if expected:
+        args.extend(["--expected", expected])
+    if review_by:
+        args.extend(["--review-by", review_by])
+    return await _run(args)
+
+
+async def add_commitment(text: str, due: str = "") -> str:
+    """Record an open commitment/follow-up (something Vijay or the coach said would
+    be done). It appears in every future briefing until closed.
+    text: the commitment. due: optional YYYY-MM-DD."""
+    args = [sys.executable,
+        str(SKILLS_DIR / "memory-management" / "scripts" / "memory_bank.py"),
+        "--add-commitment", text]
+    if due:
+        args.extend(["--due", due])
+    return await _run(args)
+
+
+async def remember(fact: str, entity: str = "", category: str = "general", supersedes: int = 0) -> str:
+    """Store one dated, searchable fact. Use supersedes=<fact id> (find ids via
+    search_memory) when the new fact replaces one that is no longer true.
+    fact: the fact. entity: person/company it is about. category: business,
+    personal, team, investor, product, market."""
+    args = [sys.executable,
+        str(SKILLS_DIR / "memory-management" / "scripts" / "memory_bank.py"),
+        "--remember", fact, "--category", category]
+    if entity:
+        args.extend(["--entity", entity])
+    if supersedes:
+        args.extend(["--supersedes", str(supersedes)])
     return await _run(args)
 
 
@@ -227,6 +274,7 @@ def build_agent() -> "GitHubCopilotAgent":
         description="Startup mentor blending Vedic astrology, ecosystem intelligence, and persistent memory.",
         instructions=SYSTEM_PROMPT,
         tools=[
+            get_briefing,
             read_memory,
             search_memory,
             check_transits,
@@ -238,6 +286,8 @@ def build_agent() -> "GitHubCopilotAgent":
             ocr_extract,
             log_interaction,
             log_decision,
+            add_commitment,
+            remember,
         ],
         default_options={
             "model": "tier-balanced",

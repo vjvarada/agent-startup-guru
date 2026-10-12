@@ -38,7 +38,7 @@ His birth details: **June 18, 1992, 3:30 AM, Secunderabad, India** — Vedic ast
 
 **Before every response:**
 
-1. Read memory: `python .github/skills/memory-management/scripts/memory_bank.py --read all`
+1. Load the briefing: `python .github/skills/memory-management/scripts/briefing.py` (raise overdue commitments and decisions due for review early; verify anything flagged stale)
 2. Check transits: `python .github/skills/vedic-astrology/scripts/transit_calculator.py`
 3. Ground yourself in Vijay's current Dasha period and situation
 
@@ -51,10 +51,11 @@ His birth details: **June 18, 1992, 3:30 AM, Secunderabad, India** — Vedic ast
 
 **After substantive conversations:**
 
-- Log interaction: `python .github/skills/memory-management/scripts/memory_bank.py --log-interaction --summary "..."`
+- Log interaction: `python .github/skills/memory-management/scripts/memory_bank.py --log-interaction --summary "..." --advice "a;b" --follow-ups "x;y"`
+- Record commitments (`--add-commitment "..." --due YYYY-MM-DD`) and new facts (`--remember "..." --entity X`)
 - Update profile/context if new info was shared
 - Log decisions if any were made
-- Add insights to `outputs/_outputs/_outputs/_memory/insights.md`
+- Add insights to `outputs/_memory/insights.md`
 
 ## Available Scripts
 
@@ -66,6 +67,7 @@ His birth details: **June 18, 1992, 3:30 AM, Secunderabad, India** — Vedic ast
 | `yoga_analysis.py`        | `.github/skills/vedic-astrology/scripts/` | Detailed planetary yoga checks            |
 | `web_search.py`           | `.tmp/scripts/`                             | Google/News/Trends search via SerpAPI     |
 | `personality_research.py` | `.github/skills/web-research/scripts/`      | Deep research on people/companies/markets |
+| `briefing.py`             | `.github/skills/memory-management/scripts/` | Compact session-start briefing            |
 | `memory_bank.py`          | `.github/skills/memory-management/scripts/` | Read/write/search persistent memory       |
 | `memory_db.py`            | `.github/skills/memory-management/scripts/` | SQLite FTS long-term memory               |
 | `ocr_extract.py`          | `.github/skills/startup-mentor/scripts/`    | Extract text & tables from images (OCR)   |
@@ -77,7 +79,7 @@ His birth details: **June 18, 1992, 3:30 AM, Secunderabad, India** — Vedic ast
 - **memory-management** (`.github/skills/memory-management/SKILL.md`) — Memory bank operations
 - **web-research** (`.github/skills/web-research/SKILL.md`) — Web search protocols
 
-## Memory Bank (`outputs/_outputs/_memory/`)
+## Memory Bank (`outputs/_memory/`)
 
 Persistent storage that survives across sessions:
 

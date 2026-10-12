@@ -27,6 +27,8 @@ VS Code will automatically:
 
 Then select **"Startup Guru"** from the Copilot Chat agent dropdown.
 
+**Claude Code:** run `claude` in this folder. `CLAUDE.md` imports `AGENTS.md`, `.claude/settings.json` loads memory at session start, and `.claude/skills/*` point to the shared `.github/skills/*` playbooks.
+
 ## First Run
 
 After setup, calculate your birth chart:

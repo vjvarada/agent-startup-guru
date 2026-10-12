@@ -58,3 +58,6 @@ inputs/
 agent-data/*
 !agent-data/NOTES.md
 !agent-data/INDEX.md
+
+# Claude Code local overrides
+.claude/settings.local.json

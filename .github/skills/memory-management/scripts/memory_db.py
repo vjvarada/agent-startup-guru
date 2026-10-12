@@ -319,7 +319,37 @@ def init_db(conn):
             VALUES (new.id, new.content, new.category);
         END;
     """))
+    migrate_schema(conn)
     conn.commit()
+
+
+def _add_column(conn, table, column, decl):
+    cols = {r["name"] for r in conn.execute(f"PRAGMA table_info({table})")}
+    if column not in cols:
+        conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {decl}")
+
+
+def migrate_schema(conn):
+    """Idempotent additive schema upgrades (safe to run on every connect)."""
+    # json_key links a row to its source entry in the JSON memory files so
+    # sync_from_json() can be re-run without creating duplicates.
+    _add_column(conn, "interactions", "json_key", "TEXT")
+    _add_column(conn, "decisions", "json_key", "TEXT")
+    _add_column(conn, "decisions", "review_by", "TEXT")
+    # Facts carry a status so stale knowledge can be retired, not deleted.
+    _add_column(conn, "facts", "status", "TEXT DEFAULT 'active'")   # active | superseded
+    _add_column(conn, "facts", "superseded_by", "INTEGER")
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS commitments (
+            id          INTEGER PRIMARY KEY AUTOINCREMENT,
+            created_at  TEXT DEFAULT (datetime('now')),
+            text        TEXT NOT NULL,
+            due         TEXT,                          -- YYYY-MM-DD, optional
+            status      TEXT DEFAULT 'open',           -- open | done | dropped
+            closed_at   TEXT,
+            note        TEXT DEFAULT ''
+        )
+    """)
 
 
 # ---------------------------------------------------------------------------
@@ -345,7 +375,7 @@ def rebuild_fts(conn):
 # UNIVERSAL SEARCH — The main agent interface
 # ---------------------------------------------------------------------------
 
-def search(conn, query, type_filter=None, after=None, before=None, limit=20):
+def search(conn, query, type_filter=None, after=None, before=None, limit=20, include_superseded=False):
     """
     Search across ALL memory tables using FTS5 ranked search.
     Returns results sorted by relevance (BM25 score).
@@ -383,7 +413,7 @@ def search(conn, query, type_filter=None, after=None, before=None, limit=20):
             "src": "facts",
             "cols": "content, category, entity, tags",
             "date_col": "created_at",
-            "display": lambda r: f"[Fact - {r['category']}] {r['content'][:200]}"
+            "display": lambda r: f"[Fact #{r['id']} - {r['category']} - {str(r['created_at'])[:10]}] {r['content'][:200]}"
         },
         "entities": {
             "fts": "fts_entities",
@@ -455,6 +485,8 @@ def search(conn, query, type_filter=None, after=None, before=None, limit=20):
 
             for row in rows:
                 r = dict(row)
+                if stype == "facts" and r.get("status") == "superseded" and not include_superseded:
+                    continue
                 date_val = r.get(cfg["date_col"], "")
 
                 # Apply date filters
@@ -585,12 +617,12 @@ def context_show(conn):
 # INTERACTION logging
 # ---------------------------------------------------------------------------
 
-def log_interaction(conn, summary, topics="", advice="", follow_ups="", raw_data=""):
+def log_interaction(conn, summary, topics="", advice="", follow_ups="", raw_data="", json_key=None, date=None):
     """Log a conversation interaction."""
     cur = conn.execute("""
-        INSERT INTO interactions (summary, topics, advice, follow_ups, raw_data)
-        VALUES (?, ?, ?, ?, ?)
-    """, (summary, topics, advice, follow_ups, raw_data))
+        INSERT INTO interactions (date, summary, topics, advice, follow_ups, raw_data, json_key)
+        VALUES (COALESCE(?, datetime('now')), ?, ?, ?, ?, ?, ?)
+    """, (date, summary, topics, advice, follow_ups, raw_data, json_key))
     conn.commit()
     print(f"Logged interaction #{cur.lastrowid}")
     return cur.lastrowid
@@ -600,12 +632,12 @@ def log_interaction(conn, summary, topics="", advice="", follow_ups="", raw_data
 # DECISION logging
 # ---------------------------------------------------------------------------
 
-def log_decision(conn, decision, context="", timing="", expected=""):
-    """Log a decision."""
+def log_decision(conn, decision, context="", timing="", expected="", review_by=None, json_key=None, date=None):
+    """Log a decision. review_by (YYYY-MM-DD) is when its outcome should be revisited."""
     cur = conn.execute("""
-        INSERT INTO decisions (decision, context, astrological_timing, expected_outcome)
-        VALUES (?, ?, ?, ?)
-    """, (decision, context, timing, expected))
+        INSERT INTO decisions (date, decision, context, astrological_timing, expected_outcome, review_by, json_key)
+        VALUES (COALESCE(?, datetime('now')), ?, ?, ?, ?, ?, ?)
+    """, (date, decision, context, timing, expected, review_by, json_key))
     conn.commit()
     print(f"Logged decision #{cur.lastrowid}")
     return cur.lastrowid
@@ -626,15 +658,124 @@ def update_outcome(conn, decision_id, outcome, status="completed"):
 # FACT storage
 # ---------------------------------------------------------------------------
 
-def add_fact(conn, content, category="general", entity="", tags="", source="", confidence="confirmed"):
-    """Store an atomic fact."""
+def add_fact(conn, content, category="general", entity="", tags="", source="", confidence="confirmed", supersedes=None):
+    """Store an atomic fact. supersedes=<fact id> retires an older, now-wrong fact
+    (kept for history, hidden from default search)."""
+    if supersedes is not None:
+        old = conn.execute("SELECT id FROM facts WHERE id = ?", (supersedes,)).fetchone()
+        if not old:
+            raise ValueError(f"Cannot supersede: fact #{supersedes} does not exist")
     cur = conn.execute("""
         INSERT INTO facts (content, category, entity, tags, source, confidence)
         VALUES (?, ?, ?, ?, ?, ?)
     """, (content, category, entity, tags, source, confidence))
+    if supersedes is not None:
+        conn.execute("UPDATE facts SET status='superseded', superseded_by=?, updated_at=datetime('now') WHERE id=?",
+                     (cur.lastrowid, supersedes))
     conn.commit()
-    print(f"Stored fact #{cur.lastrowid}")
+    msg = f"Stored fact #{cur.lastrowid}"
+    if supersedes is not None:
+        msg += f" (supersedes #{supersedes})"
+    print(msg)
     return cur.lastrowid
+
+
+# ---------------------------------------------------------------------------
+# COMMITMENTS — open loops the coach must follow up on
+# ---------------------------------------------------------------------------
+
+def add_commitment(conn, text, due=None):
+    """Record something Vijay (or the coach) said would be done."""
+    cur = conn.execute("INSERT INTO commitments (text, due) VALUES (?, ?)", (text, due))
+    conn.commit()
+    print(f"Stored commitment #{cur.lastrowid}" + (f" (due {due})" if due else ""))
+    return cur.lastrowid
+
+
+def close_commitment(conn, commitment_id, status="done", note=""):
+    """Close a commitment as done or dropped."""
+    if status not in ("done", "dropped"):
+        raise ValueError("status must be 'done' or 'dropped'")
+    cur = conn.execute("""
+        UPDATE commitments SET status=?, note=?, closed_at=datetime('now')
+        WHERE id=? AND status='open'
+    """, (status, note, commitment_id))
+    conn.commit()
+    if cur.rowcount == 0:
+        raise ValueError(f"No open commitment #{commitment_id}")
+    print(f"Commitment #{commitment_id} marked {status}")
+
+
+def list_commitments(conn, include_closed=False):
+    sql = "SELECT * FROM commitments" + ("" if include_closed else " WHERE status='open'")
+    sql += " ORDER BY (due IS NULL), due, id"
+    return [dict(r) for r in conn.execute(sql)]
+
+
+# ---------------------------------------------------------------------------
+# SYNC: JSON files (source of truth) -> SQLite (search index)
+# ---------------------------------------------------------------------------
+
+def _csv(v):
+    if isinstance(v, (list, tuple)):
+        return ",".join(str(x).strip() for x in v if str(x).strip())
+    return v or ""
+
+
+def sync_from_json(conn):
+    """Backfill interactions/decisions that exist in the JSON memory files but not in
+    the database. Idempotent. Legacy DB rows (no json_key) are matched by calendar day
+    so the detailed March transcripts are never duplicated or overwritten."""
+    added = {"interactions": 0, "decisions": 0}
+
+    def _load(name, key):
+        f = MEMORY_DIR / name
+        if not f.exists() or not f.read_text(encoding="utf-8").strip():
+            return []
+        return json.loads(f.read_text(encoding="utf-8")).get(key, [])
+
+    def _known(table):
+        keys, legacy_days = set(), set()
+        for r in conn.execute(f"SELECT json_key, date FROM {table}"):
+            if r["json_key"]:
+                keys.add(r["json_key"])
+            else:
+                legacy_days.add(str(r["date"])[:10])
+        return keys, legacy_days
+
+    # Archived interactions count too, so a consolidated log is never re-imported as new.
+    entries = _load("interaction_log.json", "interactions") + _load("interaction_archive.json", "interactions")
+    keys, days = _known("interactions")
+    for e in entries:
+        k = e.get("date")
+        if not k or k in keys or k[:10] in days:
+            continue
+        conn.execute("""
+            INSERT INTO interactions (date, summary, topics, advice, follow_ups, json_key)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (k, e.get("summary", ""), _csv(e.get("topics")), _csv(e.get("advice_given")),
+              _csv(e.get("follow_ups")), k))
+        keys.add(k)
+        added["interactions"] += 1
+
+    keys, days = _known("decisions")
+    for d in _load("decision_journal.json", "decisions"):
+        k = d.get("date")
+        if not k or k in keys or k[:10] in days:
+            continue
+        conn.execute("""
+            INSERT INTO decisions (date, decision, context, astrological_timing, expected_outcome,
+                                   actual_outcome, status, outcome_date, review_by, json_key)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (k, d.get("decision", ""), d.get("context", ""), d.get("astrological_timing", ""),
+              d.get("expected_outcome", "") or "", d.get("actual_outcome") or "",
+              d.get("status", "pending"), d.get("outcome_date"), d.get("review_by"), k))
+        keys.add(k)
+        added["decisions"] += 1
+
+    conn.commit()
+    print(f"Sync complete: +{added['interactions']} interactions, +{added['decisions']} decisions")
+    return added
 
 
 # ---------------------------------------------------------------------------
@@ -1046,6 +1187,7 @@ def main():
     p_search.add_argument("--before", help="Only results before this date (YYYY-MM-DD)")
     p_search.add_argument("--limit", type=int, default=20, help="Max results per type")
     p_search.add_argument("--json", action="store_true", help="Output as JSON")
+    p_search.add_argument("--include-superseded", action="store_true", help="Also show retired (superseded) facts")
 
     # --- profile ---
     p_profile = subparsers.add_parser("profile", help="Profile operations")
@@ -1084,6 +1226,7 @@ def main():
     p_dec.add_argument("--context", default="")
     p_dec.add_argument("--timing", default="")
     p_dec.add_argument("--expected", default="")
+    p_dec.add_argument("--review-by", default=None, help="YYYY-MM-DD date to revisit the outcome")
 
     # --- update-outcome ---
     p_out = subparsers.add_parser("update-outcome", help="Update decision outcome")
@@ -1098,6 +1241,23 @@ def main():
     p_fact.add_argument("--tags", default="")
     p_fact.add_argument("--source", default="")
     p_fact.add_argument("--confidence", default="confirmed")
+    p_fact.add_argument("--supersedes", type=int, default=None, help="ID of an older fact this replaces")
+
+    # --- commitments ---
+    p_com = subparsers.add_parser("commit", help="Track open commitments / follow-ups")
+    p_com_sub = p_com.add_subparsers(dest="commit_cmd")
+    p_com_add = p_com_sub.add_parser("add", help="Add a commitment")
+    p_com_add.add_argument("text")
+    p_com_add.add_argument("--due", default=None, help="YYYY-MM-DD")
+    p_com_done = p_com_sub.add_parser("done", help="Close a commitment")
+    p_com_done.add_argument("id", type=int)
+    p_com_done.add_argument("--dropped", action="store_true", help="Mark dropped instead of done")
+    p_com_done.add_argument("--note", default="")
+    p_com_list = p_com_sub.add_parser("list", help="List commitments")
+    p_com_list.add_argument("--all", action="store_true", help="Include closed")
+
+    # --- sync ---
+    subparsers.add_parser("sync", help="Backfill DB from JSON memory files (idempotent)")
 
     # --- add-entity ---
     p_ent = subparsers.add_parser("add-entity", help="Store an entity")
@@ -1134,7 +1294,8 @@ def main():
 
     try:
         if args.command == "search":
-            results = search(conn, args.query, args.type_filter, args.after, args.before, args.limit)
+            results = search(conn, args.query, args.type_filter, args.after, args.before, args.limit,
+                             include_superseded=args.include_superseded)
             if getattr(args, "json", False):
                 print(json.dumps(results, indent=2, default=str))
             else:
@@ -1188,13 +1349,27 @@ def main():
             log_interaction(conn, args.summary, args.topics, args.advice, getattr(args, "follow_ups", ""))
 
         elif args.command == "log-decision":
-            log_decision(conn, args.decision, args.context, args.timing, args.expected)
+            log_decision(conn, args.decision, args.context, args.timing, args.expected, args.review_by)
 
         elif args.command == "update-outcome":
             update_outcome(conn, args.decision_id, args.outcome)
 
         elif args.command == "add-fact":
-            add_fact(conn, args.content, args.category, args.entity, args.tags, args.source, args.confidence)
+            add_fact(conn, args.content, args.category, args.entity, args.tags, args.source, args.confidence, args.supersedes)
+
+        elif args.command == "commit":
+            if args.commit_cmd == "add":
+                add_commitment(conn, args.text, args.due)
+            elif args.commit_cmd == "done":
+                close_commitment(conn, args.id, "dropped" if args.dropped else "done", args.note)
+            elif args.commit_cmd == "list":
+                for c in list_commitments(conn, args.all):
+                    print(f"#{c['id']} [{c['status']}] due={c['due'] or '-'}  {c['text']}")
+            else:
+                p_com.print_help()
+
+        elif args.command == "sync":
+            sync_from_json(conn)
 
         elif args.command == "add-entity":
             add_entity(conn, args.name, args.type, args.details, args.tags)

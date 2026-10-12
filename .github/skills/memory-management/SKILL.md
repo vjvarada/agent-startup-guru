@@ -54,7 +54,8 @@ The agent has two memory tiers. The routing system decides which tier to query f
 
 ### Tier 1: Working Memory (JSON + Markdown files)
 
-- **Loaded at session start** via `memory_bank.py --read all`
+- **Session start loads a briefing, not the whole bank:** `python .github/skills/memory-management/scripts/briefing.py` (~6 KB: profile essentials, freshness warnings, open commitments, decisions awaiting review, last 3 sessions, current state, newest facts)
+- Individual files load on demand: `memory_bank.py --read startup_context|decision_journal|interaction_log|insights` (`--read all` is ~90 KB — avoid)
 - **Contents:** Current state, recent interactions (last ~10), active challenges, key relationships, goals, birth chart, insights
 - **Size:** ~60KB total — fits comfortably in context
 - **Latency:** Zero (already in context)
@@ -170,21 +171,52 @@ python .github/skills/memory-management/scripts/memory_bank.py --update startup_
 
 #### Log Interactions
 
+Always pass `--advice` and `--follow-ups` (`;`-separated) — follow-ups are what the next session's briefing surfaces.
+
 ```bash
-python .github/skills/memory-management/scripts/memory_bank.py --log-interaction --summary "Discussed Series A timing" --topics "funding,timing,jupiter transit"
+python .github/skills/memory-management/scripts/memory_bank.py --log-interaction --summary "Discussed Series A timing" --topics "funding,timing,jupiter transit" --advice "Wait for Q2;Fix unit economics first" --follow-ups "Send deck to Jai;Model 18-month runway"
 ```
 
 #### Log Decisions
 
 ```bash
-python .github/skills/memory-management/scripts/memory_bank.py --log-decision --decision "Delay fundraise to Q2" --context "Market conditions uncertain" --timing "Saturn transit 10th house"
+python .github/skills/memory-management/scripts/memory_bank.py --log-decision --decision "Delay fundraise to Q2" --context "Market conditions uncertain" --timing "Saturn transit 10th house" --expected "Better terms by Q2" --review-by 2026-12-01
 ```
+
+`--review-by` defaults to today + 30 days. Overdue reviews are flagged in the briefing — ask Vijay how they turned out, then close them with `--update-outcome`.
 
 #### Update Decision Outcomes
 
 ```bash
 python .github/skills/memory-management/scripts/memory_bank.py --update-outcome 1 --outcome "Good call - market improved by Q2, raised at better terms"
 ```
+
+#### Facts (dated, searchable, retire-able)
+
+```bash
+python .github/skills/memory-management/scripts/memory_bank.py --remember "Mayank agreed to 5% equity" --entity Mayank --category business
+# Fact changed? Find the old id via `memory_db.py search`, then supersede it (old fact is kept but hidden from default search):
+python .github/skills/memory-management/scripts/memory_bank.py --remember "Mayank withdrew the equity offer" --entity Mayank --supersedes 21
+```
+
+#### Commitments (open loops)
+
+Record anything Vijay (or you) said would be done. They appear in every briefing, overdue first.
+
+```bash
+python .github/skills/memory-management/scripts/memory_bank.py --add-commitment "Send deck to Jai" --due 2026-10-20
+python .github/skills/memory-management/scripts/memory_bank.py --close-commitment 3 --note "sent"      # add --dropped if abandoned
+python .github/skills/memory-management/scripts/memory_db.py commit list --all
+```
+
+#### Maintenance
+
+```bash
+python .github/skills/memory-management/scripts/memory_bank.py --sync                 # backfill SQLite from the JSON files (idempotent)
+python .github/skills/memory-management/scripts/memory_bank.py --consolidate --keep 15  # archive older interactions; still searchable in SQLite
+```
+
+**Write path:** JSON files are the source of truth. `--log-interaction`, `--log-decision`, `--update-outcome` and `--add-insight` automatically mirror into SQLite, so Tier 2 never goes stale. Facts and commitments live in SQLite only. If a mirror warning appears, run `--sync`.
 
 #### Add Insights
 
@@ -222,11 +254,13 @@ python .github/skills/memory-management/scripts/memory_bank.py --search "funding
 
 ### After EVERY substantive conversation (final sweep):
 
-1. **Log the interaction** — summary, topics, advice given
-2. **Update profile** if any new personal/professional info was shared
-3. **Update startup_context** if project status changed
-4. **Add insights** if any new pattern or learning emerged
-5. **Log decisions** if any decision was made or recommended
+1. **Log the interaction** — summary, topics, advice given, **follow-ups**
+2. **Record commitments** — anything promised with an owner/date (`--add-commitment`)
+3. **Update profile** if any new personal/professional info was shared
+4. **Update startup_context** if project status changed — and if a loaded fact is now wrong (e.g. personal status, a deal that closed), correct it; stale facts are worse than missing ones
+5. **Store atomic facts** (`--remember`, with `--supersedes` when replacing an old one)
+6. **Add insights** if any new pattern or learning emerged
+7. **Log decisions** with `--expected` outcome; they get a review date automatically
 
 ### Weekly Review (when prompted or proactively):
 
@@ -287,7 +321,7 @@ If any file exceeds its threshold, proceed to the relevant restructuring step.
 #### 4. interaction_log.json — Compression Rules
 
 - **Target:** Keep under 15KB
-- **When too large:** Compress interactions older than 90 days to summary-only format (remove action_items, reduce summary to 2 sentences). Keep full detail for the last 10 interactions.
+- **When too large:** Run `memory_bank.py --consolidate --keep 15`. It verifies every old entry is in SQLite, then moves it to `interaction_archive.json` (excluded from `--read all`, still searchable).
 - **Never delete:** The interaction entry itself — always keep date + summary at minimum
 
 #### 5. Cross-Reference Audit
